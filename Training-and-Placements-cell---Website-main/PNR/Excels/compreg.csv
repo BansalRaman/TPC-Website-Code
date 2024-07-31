@@ -1,0 +1,11 @@
+id,email,Name,password
+1,google@gmail.com,Google,password123
+2,microsoft@hotmail.com,Microsoft,password456
+3,amazon@yahoo.com,Amazon,password789
+4,flipkart@rediffmail.com,Flipkart,password1234
+5,tata@tata.com,Tata,password5678
+6,infosys@gmail.com,Infosys,password9101
+7,lnt@lnt.com,L&T,password1112
+8,accenture@gmail.com,Accenture,password1314
+9,cts@yahoo.com,Cognizant,password1516
+10,hcl@gmail.com,HCL,password1718

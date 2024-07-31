@@ -1,0 +1,16 @@
+id,RollNo,SDE,Management,ML,Fin,Quant,Consult,core
+NULL,2021EE02,No,Yes,Yes,No,Yes,No,Yes
+NULL,2019CS07,Yes,No,Yes,No,Yes,No,Yes
+NULL,2020AI05,Yes,Yes,No,Yes,No,Yes,Yes
+NULL,2022MC01,No,Yes,No,Yes,Yes,No,Yes
+NULL,2021EE06,Yes,Yes,No,No,Yes,No,Yes
+NULL,2021EE01,Yes,Yes,Yes,No,No,Yes,Yes
+NULL,2020MC01,Yes,No,Yes,Yes,No,Yes,No
+NULL,2019AI05,No,Yes,Yes,No,Yes,No,Yes
+NULL,2022CS02,Yes,Yes,No,Yes,Yes,Yes,Yes
+NULL,2021AI04,Yes,Yes,No,No,Yes,Yes,Yes
+NULL,2019CS03,Yes,No,Yes,No,Yes,No,Yes
+NULL,2020AI01,Yes,Yes,No,Yes,Yes,Yes,No
+NULL,2021MC05,No,Yes,Yes,Yes,No,No,No
+NULL,2019EE10,Yes,Yes,No,No,Yes,Yes,Yes
+NULL,2020CS02,No,Yes,Yes,No,Yes,Yes,Yes

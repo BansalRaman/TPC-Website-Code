@@ -1,0 +1,11 @@
+id,email,Name,password,field,phone,website,cpi,salary_low,salary_high,mode,year
+1,google@gmail.com,Google,password123,SDE,1234567890,www.google.com,8.5,100000,200000,Offline,2008
+2,microsoft@hotmail.com,Microsoft,password456,Management,9876543210,www.microsoft.com,9,90000,180000,Online,2009
+3,amazon@yahoo.com,Amazon,password789,ML,5555555555,www.amazon.com,8,80000,160000,Partial,2010
+4,flipkart@rediffmail.com,Flipkart,password1234,Fin,6666666666,www.flipkart.com,8.2,80000,150000,Offline,2011
+5,tata@tata.com,Tata,password5678,Core,1112223333,www.tata.com,7.5,70000,140000,Online,2012
+6,infosys@gmail.com,Infosys,password9101,SDE,4445556666,www.infosys.com,9.5,110000,220000,Partial,2013
+7,lnt@lnt.com,L&T,password1112,Consult,7778889999,www.larsentoubro.com,7,60000,120000,Offline,2014
+8,accenture@gmail.com,Accenture,password1314,Management,2223334444,www.accenture.com,8.7,95000,190000,Online,2015
+9,cts@yahoo.com,Cognizant,password1516,ML,3334445555,www.cognizant.com,8.3,85000,170000,Partial,2016
+10,hcl@gmail.com,HCL,password1718,Quant,8889990000,www.hcltech.com,7.8,75000,150000,Offline,2017

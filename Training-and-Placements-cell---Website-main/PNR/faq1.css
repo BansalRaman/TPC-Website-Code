@@ -1,0 +1,381 @@
+.college-logo
+{
+    display: inline-block;
+    /* float:left; */
+}
+.college-logo img
+{
+    width: 80px;
+    margin-left: 10px;
+    margin-top: 5px;
+    height: auto;
+}
+.college-text
+{
+    display: inline-block;
+	padding-top: 15px;
+    vertical-align: top;
+
+    color: white;
+}
+.college-text h1
+{
+    font-size: 30px;
+	font-family: Georgia,serif;
+    margin-top: 0;
+	font-variant: small-caps;
+}
+.college-text h3
+{
+    font-size: 16px;
+	margin-top: -10px;
+    text-align: left;
+	font-family: Georgia,serif;
+	font-variant: small-caps;
+}
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+body{
+    background-color: azure;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+nav{
+    background:blue;
+    height: 100px;
+    width: 100%;
+}
+label.logo{
+    color:whitesmoke;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+}
+nav ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+a.active,a:hover{
+    font-size: 20px;
+    background: blue;
+    transition: 0.5s;
+}
+.checkbtn{
+    font-size: 30px;
+    color: aliceblue;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
+}
+@media (max-width: 952px){
+ label.logo{
+     font-size: 30px;
+     padding-left: 50px;
+ }
+nav ul li a{
+     font-size: 16px;
+ }
+}
+@media (max-width: 858px){
+    .checkbtn{
+        display: block;
+    }
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #2c3e50;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+
+    nav ul li a{
+        font-size: 20px;
+    }
+    a.active,a:hover{
+        background: none;
+        color: burlywood;
+    }
+    #check:checked ~ ul{
+        left: 0;
+    }
+}
+.team_container{
+    width: 100%;
+    height: auto;
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+.text{
+    color: black;
+    font-size: 30px;
+    font-weight: light;
+    text-transform: uppercase;
+    text-align: center;
+}
+.row1{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-image: url('iitpbackground.jpg');
+    background-repeat: no-repeat;
+    background-blend-mode: color;
+    flex-wrap: wrap;
+    background-size: 100% 100%;
+    float: left;
+    margin-bottom: 35px;
+    justify-content: space-around;
+    justify-items: center;
+
+}
+.row{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+
+}
+
+.profile-card{
+    background-color:whitesmoke;
+    width: 280px;
+    height: 300px;
+    margin: 20px 20px 10px 10px;
+}
+.profile-card1{
+    background-color:black;
+    width: 60%;
+    height: 330px;
+    opacity: 0.6;
+    border-radius: 25px;
+    margin: 20px 0px 10px 10px;
+}
+.profile-card:hover{
+    background-color: cornsilk;
+}
+.profile-content1{
+    padding: 15px;
+}
+
+.profile-image1{
+    text-align: center;
+}
+.desc1 h2{
+    text-align: center;
+    font-size: 35px;
+    padding-bottom: 20px;
+}
+.desc1{
+    font-family:'Times New Roman', Times, serif;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    padding: 15px;
+    color:white;
+    font-weight: bold;
+    float: left;
+}
+
+.raman1{
+    float: left;
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    /* padding-top: 100px; */
+    margin-right: 29px;
+}
+
+.newcards34{
+    display: flex;
+    flex-direction: row;
+
+    justify-content:center;
+}
+
+.heading1{
+    text-align: center;
+    font-size: large;
+    /* margin-left: 70px; */
+    /* background-color:blue ; */
+}
+.change{
+    background-color: #8cc9f5;
+    padding-bottom: 30px;
+    margin-top: 20px;
+}
+
+.heading{
+    text-align: center;
+    font-size: large;
+    /* margin-left: 70px/; */
+    /* margin-top: 20px; */
+    /* margin-bottom: 20px;
+padding-top: 20px;
+justify-content: center;
+align-items: center; */
+    /* background-color:blue ; */
+}
+
+.btn-div1{
+    text-align: center;
+    margin-bottom: 30px;
+    
+}
+.btn1{
+    background-color:rgb(6, 223, 6);
+    color: black;
+    width: 150px;
+    cursor: pointer;
+    height: 38px;
+    font-size: 28px;
+    font-weight: 600px;
+    box-shadow: 3px 3px 3px 3px darkgreen;
+    border-radius: 3px;
+    outline: none;
+    transition: 2s;
+    border: none;
+}
+.btn:hover{
+    background-color: rgb(141, 141, 245);
+    width: 170px;
+    /* scale: 0.9; */
+}
+.profile-content{
+    padding: 15px;
+}
+img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+
+.profile-image{
+    text-align: center;
+}
+.desc{
+    font-family:sans-serif;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 20px;
+    color:rgb(15, 21, 6);
+    font-weight: lighter;
+}
+
+.btn-div{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.btn{
+    background-color:chartreuse;
+    color: black;
+    width: 200px;
+    cursor: pointer;
+    height: 32px ;
+    padding-bottom: 10px !important;
+    font-size: 20px;
+    font-weight: 600px;
+    box-shadow: 3px 3px 3px 3px rgb(8, 78, 8);
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    transition: 0.5s;
+}
+.footer{
+    /* margin-top: 30px; */
+    padding: 40px 0;
+    background-color: black;
+}
+a{
+    text-decoration: none !important;
+}
+.social{
+    text-align: center;
+    padding-bottom: 25px;
+    color: white;
+}
+.footer .social a{
+    font-size: 30px;
+    color: inherit;
+    border: 1px solid #ccc;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 8px;
+    opacity: 0.75;
+}
+.footer .social a:hover{
+    opacity: 0.9;
+}
+.footer ul{
+    margin-top: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: center;
+}
+.footer ul li a{
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+    text-transform: uppercase;
+
+}
+
+.footer ul li{
+    display: inline-block;
+    padding: 0 15px;
+}
+.footer ul li a:hover{
+    opacity: 1;
+}
+.footer .copyright{
+    margin-top: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+.btn{
+    padding-bottom: 10px;
+}

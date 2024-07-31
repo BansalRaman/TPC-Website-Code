@@ -1,0 +1,11 @@
+id,Name,Field,email,phone,website
+1,Google,SDE,google@gmail.com,1234567890,www.google.com
+2,Microsoft,Management,microsoft@hotmail.com,9876543210,www.microsoft.com
+3,Amazon,ML,amazon@yahoo.com,5555555555,www.amazon.com
+4,Flipkart,Fin,flipkart@rediffmail.com,6666666666,www.flipkart.com
+5,Tata,Core,tata@tata.com,1112223333,www.tata.com
+6,Infosys,SDE,infosys@gmail.com,4445556666,www.infosys.com
+7,L&T,Consult,lnt@lnt.com,7778889999,www.larsentoubro.com
+8,Accenture,Management,accenture@gmail.com,2223334444,www.accenture.com
+9,Cognizant,ML,cts@yahoo.com,3334445555,www.cognizant.com
+10,HCL,Quant,hcl@gmail.com,8889990000,www.hcltech.com

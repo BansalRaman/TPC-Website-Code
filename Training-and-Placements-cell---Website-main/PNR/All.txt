@@ -1,0 +1,2985 @@
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: ***********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 311
+Server version: 8.0.32 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| dbtest             |
+| information_schema |
+| mysql              |
+| performance_schema |
+| projectpnr         |
+| raman              |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (0.07 sec)
+
+mysql> use projectpnr;
+Database changed
+mysql> create table stureg(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(50) unique,Name varchar(30),password varchar(50));
+Query OK, 0 rows affected (0.26 sec)
+
+mysql> desc stureg;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo   | varchar(50) | YES  | UNI | NULL    |                |
+| Name     | varchar(30) | YES  |     | NULL    |                |
+| password | varchar(50) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.04 sec)
+
+mysql> create table stuDet(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(30) unique,Name varchar(30),email varchar(50) unique,phone varchar(50),DOB date);
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> desc stuDet
+    -> '
+    '> ;
+    '>
+    '> ^C
+mysql> desc stuDet;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| id     | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo | varchar(30) | YES  | UNI | NULL    |                |
+| Name   | varchar(30) | YES  |     | NULL    |                |
+| email  | varchar(50) | YES  | UNI | NULL    |                |
+| phone  | varchar(50) | YES  |     | NULL    |                |
+| DOB    | date        | YES  |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+6 rows in set (0.02 sec)
+
+mysql> create table stuEdu(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(30) unique,Specialization varchar(30),Batch year varchar(50),tenth varchar(50),twelve varchar(50),CPI varchar(30));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'varchar(50),tenth varchar(50),twelve varchar(50),CPI varchar(30))' at line 1
+mysql> create table stuEdu(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(30) unique,Specialization varchar(30),Batch year varchar(50),tenth varchar(50),twelve varchar(50),CPI varchar(30));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'varchar(50),tenth varchar(50),twelve varchar(50),CPI varchar(30))' at line 1
+mysql> create table stuEdu(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(30) unique,Specialization varchar(30),Batch_year varchar(50),tenth varchar(50),twelve varchar(50),CPI varchar(30));
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> create table stuArea(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(30) unique,SDE varchar(30),Management varchar(50),ML varchar(50),Fin varchar(50),Quant varchar(30),Consult varchar(30),core  varchar(30));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> create table stuPlaced(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(30) unique,Placed varchar(30),CName varchar(50),Package float);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> alter table StuEdu alter column tenth float;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'float' at line 1
+mysql> alter table StuEdu modify column tenth float;
+Query OK, 0 rows affected (0.14 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table StuEdu modify column twelve float;
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc stuEdu;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| id             | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo         | varchar(30) | YES  | UNI | NULL    |                |
+| Specialization | varchar(30) | YES  |     | NULL    |                |
+| Batch_year     | varchar(50) | YES  |     | NULL    |                |
+| tenth          | float       | YES  |     | NULL    |                |
+| twelve         | float       | YES  |     | NULL    |                |
+| CPI            | varchar(30) | YES  |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+7 rows in set (0.00 sec)
+
+mysql> alter table StuEdu modify column CPI float;
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from stuReg;
+Empty set (0.05 sec)
+
+mysql> select * from stuReg;
++----+---------+----------+-----------+
+| id | RollNo  | Name     | password  |
++----+---------+----------+-----------+
+|  1 | Pradeep | 2101CS59 | qwerty123 |
++----+---------+----------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select * from stuReg;
++----+---------+----------+-----------+
+| id | RollNo  | Name     | password  |
++----+---------+----------+-----------+
+|  1 | Pradeep | 2101CS59 | qwerty123 |
+|  2 | Raman   | 2101CS64 | raman123  |
++----+---------+----------+-----------+
+2 rows in set (0.01 sec)
+
+mysql> delete from stuReg where id<3;
+Query OK, 2 rows affected (0.01 sec)
+
+mysql> select * from stuReg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  3 | 2101CS59 | Pradeep | pradeep1234 |
++----+----------+---------+-------------+
+1 row in set (0.01 sec)
+
+mysql> select * from stuReg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  3 | 2101CS59 | Pradeep | pradeep1234 |
++----+----------+---------+-------------+
+1 row in set (0.03 sec)
+
+mysql> select * from stuReg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  3 | 2101CS59 | Pradeep | pradeep1234 |
+|  4 | 2101CS03 | hiren   | hiren123    |
++----+----------+---------+-------------+
+2 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Microsoft Windows [Version 10.0.22621.1413]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\PRADEEP>cd C:\Program Files\MySQL\MySQL Server 8.0\bin
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: ***********
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: ***********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 381
+Server version: 8.0.32 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| dbtest             |
+| information_schema |
+| mysql              |
+| performance_schema |
+| projectpnr         |
+| raman              |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (0.13 sec)
+
+mysql> use projectpnr;
+Database changed
+mysql> select * from stuReg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  3 | 2101CS59 | Pradeep | pradeep1234 |
+|  4 | 2101CS03 | hiren   | hiren123    |
++----+----------+---------+-------------+
+2 rows in set (0.01 sec)
+
+mysql> show tables;
++----------------------+
+| Tables_in_projectpnr |
++----------------------+
+| stuarea              |
+| studet               |
+| stuedu               |
+| stuplaced            |
+| stureg               |
++----------------------+
+5 rows in set (0.12 sec)
+
+mysql> desc stuarea;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| id         | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo     | varchar(30) | YES  | UNI | NULL    |                |
+| SDE        | varchar(30) | YES  |     | NULL    |                |
+| Management | varchar(50) | YES  |     | NULL    |                |
+| ML         | varchar(50) | YES  |     | NULL    |                |
+| Fin        | varchar(50) | YES  |     | NULL    |                |
+| Quant      | varchar(30) | YES  |     | NULL    |                |
+| Consult    | varchar(30) | YES  |     | NULL    |                |
+| core       | varchar(30) | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+9 rows in set (0.03 sec)
+
+mysql> desc studet;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| id     | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo | varchar(30) | YES  | UNI | NULL    |                |
+| Name   | varchar(30) | YES  |     | NULL    |                |
+| email  | varchar(50) | YES  | UNI | NULL    |                |
+| phone  | varchar(50) | YES  |     | NULL    |                |
+| DOB    | date        | YES  |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+6 rows in set (0.01 sec)
+
+mysql> desc stuedu;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| id             | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo         | varchar(30) | YES  | UNI | NULL    |                |
+| Specialization | varchar(30) | YES  |     | NULL    |                |
+| Batch_year     | varchar(50) | YES  |     | NULL    |                |
+| tenth          | float       | YES  |     | NULL    |                |
+| twelve         | float       | YES  |     | NULL    |                |
+| CPI            | float       | YES  |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+7 rows in set (0.01 sec)
+
+mysql> desc stuplaced;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id      | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo  | varchar(30) | YES  | UNI | NULL    |                |
+| Placed  | varchar(30) | YES  |     | NULL    |                |
+| CName   | varchar(50) | YES  |     | NULL    |                |
+| Package | float       | YES  |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> desc stureg;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo   | varchar(50) | YES  | UNI | NULL    |                |
+| Name     | varchar(30) | YES  |     | NULL    |                |
+| password | varchar(50) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.02 sec)
+
+mysql> insert into stuReg (id,RollNo) values(1,'11');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from stuReg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  1 | 11       | NULL    | NULL        |
+|  3 | 2101CS59 | Pradeep | pradeep1234 |
+|  4 | 2101CS03 | hiren   | hiren123    |
++----+----------+---------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into stuReg (RollNo) values('21');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from stuReg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  1 | 11       | NULL    | NULL        |
+|  3 | 2101CS59 | Pradeep | pradeep1234 |
+|  4 | 2101CS03 | hiren   | hiren123    |
+|  5 | 21       | NULL    | NULL        |
++----+----------+---------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from stuReg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  1 | 11       | NULL    | NULL        |
+|  3 | 2101CS59 | Pradeep | pradeep1234 |
+|  4 | 2101CS03 | hiren   | hiren123    |
+|  5 | 21       | NULL    | NULL        |
+|  6 | 2101CS52 | nishu   | nishu123    |
++----+----------+---------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from stuplaced;
+Empty set (0.03 sec)
+
+mysql> select * from stuedu;
+Empty set (0.01 sec)
+
+mysql> select * from stuReg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  1 | 11       | NULL    | NULL        |
+|  3 | 2101CS59 | Pradeep | pradeep1234 |
+|  4 | 2101CS03 | hiren   | hiren123    |
+|  5 | 21       | NULL    | NULL        |
+|  6 | 2101CS52 | nishu   | nishu123    |
+|  7 | 2101cs22 | temp    | qwerty123   |
++----+----------+---------+-------------+
+6 rows in set (0.01 sec)
+
+mysql> select * from stuarea;
+Empty set (0.02 sec)
+
+mysql> delete from stuReg  where id=7;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from stuplaced;
++----+----------+--------+-------+---------+
+| id | RollNo   | Placed | CName | Package |
++----+----------+--------+-------+---------+
+|  1 | 2101cs22 | NULL   | NULL  |    NULL |
++----+----------+--------+-------+---------+
+1 row in set (0.00 sec)
+
+mysql> select * from stuplaced;
++----+----------+--------+-------+---------+
+| id | RollNo   | Placed | CName | Package |
++----+----------+--------+-------+---------+
+|  1 | 2101cs22 | NULL   | NULL  |    NULL |
++----+----------+--------+-------+---------+
+1 row in set (0.00 sec)
+
+mysql> select * from stuReg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  1 | 11       | NULL    | NULL        |
+|  3 | 2101CS59 | Pradeep | pradeep1234 |
+|  4 | 2101CS03 | hiren   | hiren123    |
+|  5 | 21       | NULL    | NULL        |
+|  6 | 2101CS52 | nishu   | nishu123    |
+|  8 | 2101cs11 | pr      | qwerty123   |
++----+----------+---------+-------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from stuReg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  1 | 11       | NULL    | NULL        |
+|  3 | 2101CS59 | Pradeep | pradeep1234 |
+|  4 | 2101CS03 | hiren   | hiren123    |
+|  5 | 21       | NULL    | NULL        |
+|  6 | 2101CS52 | nishu   | nishu123    |
+|  8 | 2101cs11 | pr      | qwerty123   |
+|  9 | 1133     | hello   | qwerty123   |
++----+----------+---------+-------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from stuplaced;
++----+----------+--------+-------+---------+
+| id | RollNo   | Placed | CName | Package |
++----+----------+--------+-------+---------+
+|  1 | 2101cs22 | NULL   | NULL  |    NULL |
+|  2 | 1133     | NULL   | NULL  |    NULL |
++----+----------+--------+-------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select * from stuplaced;
++----+----------+--------+-------+---------+
+| id | RollNo   | Placed | CName | Package |
++----+----------+--------+-------+---------+
+|  1 | 2101cs22 | NULL   | NULL  |    NULL |
+|  2 | 1133     | NULL   | NULL  |    NULL |
+|  3 | cs44     | NULL   | NULL  |    NULL |
++----+----------+--------+-------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select * from stuarea;
+Empty set (0.00 sec)
+
+mysql> select * from stuedu;
++----+--------+----------------+------------+-------+--------+------+
+| id | RollNo | Specialization | Batch_year | tenth | twelve | CPI  |
++----+--------+----------------+------------+-------+--------+------+
+|  1 | cs44   | NULL           | NULL       |  NULL |   NULL | NULL |
++----+--------+----------------+------------+-------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> update stuedu set id=3 where id=1;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from stuedu;
++----+--------+----------------+------------+-------+--------+------+
+| id | RollNo | Specialization | Batch_year | tenth | twelve | CPI  |
++----+--------+----------------+------------+-------+--------+------+
+|  3 | cs44   | NULL           | NULL       |  NULL |   NULL | NULL |
++----+--------+----------------+------------+-------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> update stuplaced set CName = 'hello' where RollNo ='cs44';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from stuReg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  1 | 11       | NULL    | NULL        |
+|  3 | 2101CS59 | Pradeep | pradeep1234 |
+|  4 | 2101CS03 | hiren   | hiren123    |
+|  5 | 21       | NULL    | NULL        |
+|  6 | 2101CS52 | nishu   | nishu123    |
+|  8 | 2101cs11 | pr      | qwerty123   |
+|  9 | 1133     | hello   | qwerty123   |
+| 10 | cs44     | ali     | 1234567890z |
++----+----------+---------+-------------+
+8 rows in set (0.01 sec)
+
+mysql> update stuedu set id=10 where id=3;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update stueplaced set id=10 where id=3;
+ERROR 1146 (42S02): Table 'projectpnr.stueplaced' doesn't exist
+mysql> update stuplaced set id=10 where id=3;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from stuReg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  1 | 11       | NULL    | NULL        |
+|  3 | 2101CS59 | Pradeep | pradeep1234 |
+|  4 | 2101CS03 | hiren   | hiren123    |
+|  5 | 21       | NULL    | NULL        |
+|  6 | 2101CS52 | nishu   | nishu123    |
+|  8 | 2101cs11 | pr      | qwerty123   |
+|  9 | 1133     | hello   | qwerty123   |
+| 10 | cs44     | ali     | 1234567890z |
++----+----------+---------+-------------+
+8 rows in set (0.00 sec)
+
+mysql> select * from stuedu;
++----+--------+----------------+------------+-------+--------+------+
+| id | RollNo | Specialization | Batch_year | tenth | twelve | CPI  |
++----+--------+----------------+------------+-------+--------+------+
+| 10 | cs44   | NULL           | NULL       |  NULL |   NULL | NULL |
++----+--------+----------------+------------+-------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from stuplaced;
++----+----------+--------+-------+---------+
+| id | RollNo   | Placed | CName | Package |
++----+----------+--------+-------+---------+
+|  1 | 2101cs22 | NULL   | NULL  |    NULL |
+|  2 | 1133     | NULL   | NULL  |    NULL |
+| 10 | cs44     | NULL   | hello |    NULL |
++----+----------+--------+-------+---------+
+3 rows in set (0.00 sec)
+
+mysql> update stuedu set tenth=2 where id=10;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> show tables;
++----------------------+
+| Tables_in_projectpnr |
++----------------------+
+| stuarea              |
+| studet               |
+| stuedu               |
+| stuplaced            |
+| stureg               |
++----------------------+
+5 rows in set (0.02 sec)
+
+mysql> drop stuarea;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'stuarea' at line 1
+mysql> drop table stuarea;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> show tables;
++----------------------+
+| Tables_in_projectpnr |
++----------------------+
+| studet               |
+| stuedu               |
+| stuplaced            |
+| stureg               |
++----------------------+
+4 rows in set (0.00 sec)
+
+mysql> drop table studet;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> drop table stuedu;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> drop table stuplaced;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> drop table stureg;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql>
+mysql>
+mysql> create table stureg(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(50) unique,Name varchar(30),password varchar(50));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> desc stureg;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra
+ |
++----------+-------------+------+-----+---------+----------------+
+| id       | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo   | varchar(50) | YES  | UNI | NULL    |
+ |
+| Name     | varchar(30) | YES  |     | NULL    |
+ |
+| password | varchar(50) | YES  |     | NULL    |
+ |
++----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> create table stuDet(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(30) unique,Name varchar(30),email varchar(50) unique,phone varchar(50),DOB date);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc stuDet;
++--------+-------------+------+-----+---------+----------------+| Field  | Type        | Null | Key | Default | Extra          |+--------+-------------+------+-----+---------+----------------+| id     | int         | NO   | PRI | NULL    | auto_increment || RollNo | varchar(30) | YES  | UNI | NULL    |                || Name   | varchar(30) | YES  |     | NULL    |                || email  | varchar(50) | YES  | UNI | NULL    |                || phone  | varchar(50) | YES  |     | NULL    |                || DOB    | date        | YES  |     | NULL    |                |+--------+-------------+------+-----+---------+----------------+6 rows in set (0.00 sec)
+
+mysql> create table stuEdu(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(30) unique,Specialization varchar(30),Batch_year varchar(50),tenth varchar(50),twelve varchar(50),CPI varchar(30));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table stuArea(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(30) unique,SDE varchar(30),Management varchar(50),ML varchar(50),Fin varchar(50),Quant varchar(30),Consult varchar(30),core  varchar(30));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table stuPlaced(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(30) unique,Placed varchar(30),CName varchar(50),Package float);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> alter table StuEdu modify column tenth float;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table StuEdu modify column twelve float;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table StuEdu modify column CPI float;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from stuedu;
++----+----------+----------------+------------+-------+--------+------+
+| id | RollNo   | Specialization | Batch_year | tenth | twelve | CPI  |
++----+----------+----------------+------------+-------+--------+------+
+|  1 | 2101CS59 | NULL           | NULL       |  NULL |   NULL | NULL |
++----+----------+----------------+------------+-------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from studet;
+Empty set (0.01 sec)
+
+mysql> select * from stureg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  1 | 2101CS59 | Pradeep | 1234567890q |
++----+----------+---------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select * from stuarea;
++----+----------+------+------------+------+------+-------+---------+------+
+| id | RollNo   | SDE  | Management | ML   | Fin  | Quant | Consult | core |
++----+----------+------+------------+------+------+-------+---------+------+
+|  1 | 2101CS59 | NULL | NULL       | NULL | NULL | NULL  | NULL    | NULL |
++----+----------+------+------------+------+------+-------+---------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from stuDet;
+Empty set (0.00 sec)
+
+mysql> select * from stuplaced;
++----+----------+--------+-------+---------+
+| id | RollNo   | Placed | CName | Package |
++----+----------+--------+-------+---------+
+|  1 | 2101CS59 | NULL   | NULL  |    NULL |
++----+----------+--------+-------+---------+
+1 row in set (0.00 sec)
+
+mysql> desc stuDet;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| id     | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo | varchar(30) | YES  | UNI | NULL    |                |
+| Name   | varchar(30) | YES  |     | NULL    |                |
+| email  | varchar(50) | YES  | UNI | NULL    |                |
+| phone  | varchar(50) | YES  |     | NULL    |                |
+| DOB    | date        | YES  |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+6 rows in set (0.01 sec)
+
+mysql> insert into studet values(1,'2101CS59','Pradeep',NULL,NULL,NULL);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from stuDet;
++----+----------+---------+-------+-------+------+
+| id | RollNo   | Name    | email | phone | DOB  |
++----+----------+---------+-------+-------+------+
+|  1 | 2101CS59 | Pradeep | NULL  | NULL  | NULL |
++----+----------+---------+-------+-------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from stuDet;
++----+----------+---------+-------+-------+------+
+| id | RollNo   | Name    | email | phone | DOB  |
++----+----------+---------+-------+-------+------+
+|  1 | 2101CS59 | Pradeep | NULL  | NULL  | NULL |
+|  2 | 2101CS52 | nishu   | NULL  | NULL  | NULL |
++----+----------+---------+-------+-------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from stuarea;
++----+----------+------+------------+------+------+-------+---------+------+
+| id | RollNo   | SDE  | Management | ML   | Fin  | Quant | Consult | core |
++----+----------+------+------------+------+------+-------+---------+------+
+|  1 | 2101CS59 | NULL | NULL       | NULL | NULL | NULL  | NULL    | NULL |
+|  2 | 2101CS52 | NULL | NULL       | NULL | NULL | NULL  | NULL    | NULL |
++----+----------+------+------------+------+------+-------+---------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from stuedu;
++----+----------+----------------+------------+-------+--------+------+
+| id | RollNo   | Specialization | Batch_year | tenth | twelve | CPI  |
++----+----------+----------------+------------+-------+--------+------+
+|  1 | 2101CS59 | NULL           | NULL       |  NULL |   NULL | NULL |
+|  2 | 2101CS52 | NULL           | NULL       |  NULL |   NULL | NULL |
++----+----------+----------------+------------+-------+--------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from stuplaced;
++----+----------+--------+-------+---------+
+| id | RollNo   | Placed | CName | Package |
++----+----------+--------+-------+---------+
+|  1 | 2101CS59 | NULL   | NULL  |    NULL |
+|  2 | 2101CS52 | NULL   | NULL  |    NULL |
++----+----------+--------+-------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select * from stureg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  1 | 2101CS59 | Pradeep | 1234567890q |
+|  2 | 2101CS52 | nishu   | 1234567890q |
++----+----------+---------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> ^A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\PRADEEP>cd C:\Program Files\MySQL\MySQL Server 8.0\bin
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: ***********
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: ***********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 381
+Server version: 8.0.32 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| dbtest             |
+| information_schema |
+| mysql              |
+| performance_schema |
+| projectpnr         |
+| raman              |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (0.13 sec)
+
+mysql> use projectpnr;
+Database changed
+mysql> select * from stuReg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  3 | 2101CS59 | Pradeep | pradeep1234 |
+|  4 | 2101CS03 | hiren   | hiren123    |
++----+----------+---------+-------------+
+2 rows in set (0.01 sec)
+
+mysql> show tables;
++----------------------+
+| Tables_in_projectpnr |
++----------------------+
+| stuarea              |
+| studet               |
+| stuedu               |
+| stuplaced            |
+| stureg               |
++----------------------+
+5 rows in set (0.12 sec)
+
+mysql> desc stuarea;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| id         | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo     | varchar(30) | YES  | UNI | NULL    |                |
+| SDE        | varchar(30) | YES  |     | NULL    |                |
+| Management | varchar(50) | YES  |     | NULL    |                |
+| ML         | varchar(50) | YES  |     | NULL    |                |
+| Fin        | varchar(50) | YES  |     | NULL    |                |
+| Quant      | varchar(30) | YES  |     | NULL    |                |
+| Consult    | varchar(30) | YES  |     | NULL    |                |
+| core       | varchar(30) | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+9 rows in set (0.03 sec)
+
+mysql> desc studet;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| id     | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo | varchar(30) | YES  | UNI | NULL    |                |
+| Name   | varchar(30) | YES  |     | NULL    |                |
+| email  | varchar(50) | YES  | UNI | NULL    |                |
+| phone  | varchar(50) | YES  |     | NULL    |                |
+| DOB    | date        | YES  |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+6 rows in set (0.01 sec)
+
+mysql> desc stuedu;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| id             | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo         | varchar(30) | YES  | UNI | NULL    |                |
+| Specialization | varchar(30) | YES  |     | NULL    |                |
+| Batch_year     | varchar(50) | YES  |     | NULL    |                |
+| tenth          | float       | YES  |     | NULL    |                |
+| twelve         | float       | YES  |     | NULL    |                |
+| CPI            | float       | YES  |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+7 rows in set (0.01 sec)
+
+mysql> desc stuplaced;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id      | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo  | varchar(30) | YES  | UNI | NULL    |                |
+| Placed  | varchar(30) | YES  |     | NULL    |                |
+| CName   | varchar(50) | YES  |     | NULL    |                |
+| Package | float       | YES  |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> desc stureg;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo   | varchar(50) | YES  | UNI | NULL    |                |
+| Name     | varchar(30) | YES  |     | NULL    |                |
+| password | varchar(50) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.02 sec)
+
+mysql> insert into stuReg (id,RollNo) values(1,'11');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from stuReg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  1 | 11       | NULL    | NULL        |
+|  3 | 2101CS59 | Pradeep | pradeep1234 |
+|  4 | 2101CS03 | hiren   | hiren123    |
++----+----------+---------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into stuReg (RollNo) values('21');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from stuReg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  1 | 11       | NULL    | NULL        |
+|  3 | 2101CS59 | Pradeep | pradeep1234 |
+|  4 | 2101CS03 | hiren   | hiren123    |
+|  5 | 21       | NULL    | NULL        |
++----+----------+---------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from stuReg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  1 | 11       | NULL    | NULL        |
+|  3 | 2101CS59 | Pradeep | pradeep1234 |
+|  4 | 2101CS03 | hiren   | hiren123    |
+|  5 | 21       | NULL    | NULL        |
+|  6 | 2101CS52 | nishu   | nishu123    |
++----+----------+---------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from stuplaced;
+Empty set (0.03 sec)
+
+mysql> select * from stuedu;
+Empty set (0.01 sec)
+
+mysql> select * from stuReg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  1 | 11       | NULL    | NULL        |
+|  3 | 2101CS59 | Pradeep | pradeep1234 |
+|  4 | 2101CS03 | hiren   | hiren123    |
+|  5 | 21       | NULL    | NULL        |
+|  6 | 2101CS52 | nishu   | nishu123    |
+|  7 | 2101cs22 | temp    | qwerty123   |
++----+----------+---------+-------------+
+6 rows in set (0.01 sec)
+
+mysql> select * from stuarea;
+Empty set (0.02 sec)
+
+mysql> delete from stuReg  where id=7;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from stuplaced;
++----+----------+--------+-------+---------+
+| id | RollNo   | Placed | CName | Package |
++----+----------+--------+-------+---------+
+|  1 | 2101cs22 | NULL   | NULL  |    NULL |
++----+----------+--------+-------+---------+
+1 row in set (0.00 sec)
+
+mysql> select * from stuplaced;
++----+----------+--------+-------+---------+
+| id | RollNo   | Placed | CName | Package |
++----+----------+--------+-------+---------+
+|  1 | 2101cs22 | NULL   | NULL  |    NULL |
++----+----------+--------+-------+---------+
+1 row in set (0.00 sec)
+
+mysql> select * from stuReg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  1 | 11       | NULL    | NULL        |
+|  3 | 2101CS59 | Pradeep | pradeep1234 |
+|  4 | 2101CS03 | hiren   | hiren123    |
+|  5 | 21       | NULL    | NULL        |
+|  6 | 2101CS52 | nishu   | nishu123    |
+|  8 | 2101cs11 | pr      | qwerty123   |
++----+----------+---------+-------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from stuReg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  1 | 11       | NULL    | NULL        |
+|  3 | 2101CS59 | Pradeep | pradeep1234 |
+|  4 | 2101CS03 | hiren   | hiren123    |
+|  5 | 21       | NULL    | NULL        |
+|  6 | 2101CS52 | nishu   | nishu123    |
+|  8 | 2101cs11 | pr      | qwerty123   |
+|  9 | 1133     | hello   | qwerty123   |
++----+----------+---------+-------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from stuplaced;
++----+----------+--------+-------+---------+
+| id | RollNo   | Placed | CName | Package |
++----+----------+--------+-------+---------+
+|  1 | 2101cs22 | NULL   | NULL  |    NULL |
+|  2 | 1133     | NULL   | NULL  |    NULL |
++----+----------+--------+-------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select * from stuplaced;
++----+----------+--------+-------+---------+
+| id | RollNo   | Placed | CName | Package |
++----+----------+--------+-------+---------+
+|  1 | 2101cs22 | NULL   | NULL  |    NULL |
+|  2 | 1133     | NULL   | NULL  |    NULL |
+|  3 | cs44     | NULL   | NULL  |    NULL |
++----+----------+--------+-------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select * from stuarea;
+Empty set (0.00 sec)
+
+mysql> select * from stuedu;
++----+--------+----------------+------------+-------+--------+------+
+| id | RollNo | Specialization | Batch_year | tenth | twelve | CPI  |
++----+--------+----------------+------------+-------+--------+------+
+|  1 | cs44   | NULL           | NULL       |  NULL |   NULL | NULL |
++----+--------+----------------+------------+-------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> update stuedu set id=3 where id=1;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from stuedu;
++----+--------+----------------+------------+-------+--------+------+
+| id | RollNo | Specialization | Batch_year | tenth | twelve | CPI  |
++----+--------+----------------+------------+-------+--------+------+
+|  3 | cs44   | NULL           | NULL       |  NULL |   NULL | NULL |
++----+--------+----------------+------------+-------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> update stuplaced set CName = 'hello' where RollNo ='cs44';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from stuReg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  1 | 11       | NULL    | NULL        |
+|  3 | 2101CS59 | Pradeep | pradeep1234 |
+|  4 | 2101CS03 | hiren   | hiren123    |
+|  5 | 21       | NULL    | NULL        |
+|  6 | 2101CS52 | nishu   | nishu123    |
+|  8 | 2101cs11 | pr      | qwerty123   |
+|  9 | 1133     | hello   | qwerty123   |
+| 10 | cs44     | ali     | 1234567890z |
++----+----------+---------+-------------+
+8 rows in set (0.01 sec)
+
+mysql> update stuedu set id=10 where id=3;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update stueplaced set id=10 where id=3;
+ERROR 1146 (42S02): Table 'projectpnr.stueplaced' doesn't exist
+mysql> update stuplaced set id=10 where id=3;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from stuReg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  1 | 11       | NULL    | NULL        |
+|  3 | 2101CS59 | Pradeep | pradeep1234 |
+|  4 | 2101CS03 | hiren   | hiren123    |
+|  5 | 21       | NULL    | NULL        |
+|  6 | 2101CS52 | nishu   | nishu123    |
+|  8 | 2101cs11 | pr      | qwerty123   |
+|  9 | 1133     | hello   | qwerty123   |
+| 10 | cs44     | ali     | 1234567890z |
++----+----------+---------+-------------+
+8 rows in set (0.00 sec)
+
+mysql> select * from stuedu;
++----+--------+----------------+------------+-------+--------+------+
+| id | RollNo | Specialization | Batch_year | tenth | twelve | CPI  |
++----+--------+----------------+------------+-------+--------+------+
+| 10 | cs44   | NULL           | NULL       |  NULL |   NULL | NULL |
++----+--------+----------------+------------+-------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from stuplaced;
++----+----------+--------+-------+---------+
+| id | RollNo   | Placed | CName | Package |
++----+----------+--------+-------+---------+
+|  1 | 2101cs22 | NULL   | NULL  |    NULL |
+|  2 | 1133     | NULL   | NULL  |    NULL |
+| 10 | cs44     | NULL   | hello |    NULL |
++----+----------+--------+-------+---------+
+3 rows in set (0.00 sec)
+
+mysql> update stuedu set tenth=2 where id=10;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> show tables;
++----------------------+
+| Tables_in_projectpnr |
++----------------------+
+| stuarea              |
+| studet               |
+| stuedu               |
+| stuplaced            |
+| stureg               |
++----------------------+
+5 rows in set (0.02 sec)
+
+mysql> drop stuarea;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'stuarea' at line 1
+mysql> drop table stuarea;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> show tables;
++----------------------+
+| Tables_in_projectpnr |
++----------------------+
+| studet               |
+| stuedu               |
+| stuplaced            |
+| stureg               |
++----------------------+
+4 rows in set (0.00 sec)
+
+mysql> drop table studet;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> drop table stuedu;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> drop table stuplaced;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> drop table stureg;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql>
+mysql>
+mysql> create table stureg(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(50) unique,Name varchar(30),password varchar(50));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> desc stureg;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra
+ |
++----------+-------------+------+-----+---------+----------------+
+| id       | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo   | varchar(50) | YES  | UNI | NULL    |
+ |
+| Name     | varchar(30) | YES  |     | NULL    |
+ |
+| password | varchar(50) | YES  |     | NULL    |
+ |
++----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> create table stuDet(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(30) unique,Name varchar(30),email varchar(50) unique,phone varchar(50),DOB date);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc stuDet;
++--------+-------------+------+-----+---------+----------------+| Field  | Type        | Null | Key | Default | Extra          |+--------+-------------+------+-----+---------+----------------+| id     | int         | NO   | PRI | NULL    | auto_increment || RollNo | varchar(30) | YES  | UNI | NULL    |                || Name   | varchar(30) | YES  |     | NULL    |                || email  | varchar(50) | YES  | UNI | NULL    |                || phone  | varchar(50) | YES  |     | NULL    |                || DOB    | date        | YES  |     | NULL    |                |+--------+-------------+------+-----+---------+----------------+6 rows in set (0.00 sec)
+
+mysql> create table stuEdu(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(30) unique,Specialization varchar(30),Batch_year varchar(50),tenth varchar(50),twelve varchar(50),CPI varchar(30));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table stuArea(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(30) unique,SDE varchar(30),Management varchar(50),ML varchar(50),Fin varchar(50),Quant varchar(30),Consult varchar(30),core  varchar(30));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table stuPlaced(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(30) unique,Placed varchar(30),CName varchar(50),Package float);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> alter table StuEdu modify column tenth float;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table StuEdu modify column twelve float;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table StuEdu modify column CPI float;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from stuedu;
++----+----------+----------------+------------+-------+--------+------+
+| id | RollNo   | Specialization | Batch_year | tenth | twelve | CPI  |
++----+----------+----------------+------------+-------+--------+------+
+|  1 | 2101CS59 | NULL           | NULL       |  NULL |   NULL | NULL |
++----+----------+----------------+------------+-------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from studet;
+Empty set (0.01 sec)
+
+mysql> select * from stureg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  1 | 2101CS59 | Pradeep | 1234567890q |
++----+----------+---------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select * from stuarea;
++----+----------+------+------------+------+------+-------+---------+------+
+| id | RollNo   | SDE  | Management | ML   | Fin  | Quant | Consult | core |
++----+----------+------+------------+------+------+-------+---------+------+
+|  1 | 2101CS59 | NULL | NULL       | NULL | NULL | NULL  | NULL    | NULL |
++----+----------+------+------------+------+------+-------+---------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from stuDet;
+Empty set (0.00 sec)
+
+mysql> select * from stuplaced;
++----+----------+--------+-------+---------+
+| id | RollNo   | Placed | CName | Package |
++----+----------+--------+-------+---------+
+|  1 | 2101CS59 | NULL   | NULL  |    NULL |
++----+----------+--------+-------+---------+
+1 row in set (0.00 sec)
+
+mysql> desc stuDet;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| id     | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo | varchar(30) | YES  | UNI | NULL    |                |
+| Name   | varchar(30) | YES  |     | NULL    |                |
+| email  | varchar(50) | YES  | UNI | NULL    |                |
+| phone  | varchar(50) | YES  |     | NULL    |                |
+| DOB    | date        | YES  |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+6 rows in set (0.01 sec)
+
+mysql> insert into studet values(1,'2101CS59','Pradeep',NULL,NULL,NULL);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from stuDet;
++----+----------+---------+-------+-------+------+
+| id | RollNo   | Name    | email | phone | DOB  |
++----+----------+---------+-------+-------+------+
+|  1 | 2101CS59 | Pradeep | NULL  | NULL  | NULL |
++----+----------+---------+-------+-------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from stuDet;
++----+----------+---------+-------+-------+------+
+| id | RollNo   | Name    | email | phone | DOB  |
++----+----------+---------+-------+-------+------+
+|  1 | 2101CS59 | Pradeep | NULL  | NULL  | NULL |
+|  2 | 2101CS52 | nishu   | NULL  | NULL  | NULL |
++----+----------+---------+-------+-------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from stuarea;
++----+----------+------+------------+------+------+-------+---------+------+
+| id | RollNo   | SDE  | Management | ML   | Fin  | Quant | Consult | core |
++----+----------+------+------------+------+------+-------+---------+------+
+|  1 | 2101CS59 | NULL | NULL       | NULL | NULL | NULL  | NULL    | NULL |
+|  2 | 2101CS52 | NULL | NULL       | NULL | NULL | NULL  | NULL    | NULL |
++----+----------+------+------------+------+------+-------+---------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from stuedu;
++----+----------+----------------+------------+-------+--------+------+
+| id | RollNo   | Specialization | Batch_year | tenth | twelve | CPI  |
++----+----------+----------------+------------+-------+--------+------+
+|  1 | 2101CS59 | NULL           | NULL       |  NULL |   NULL | NULL |
+|  2 | 2101CS52 | NULL           | NULL       |  NULL |   NULL | NULL |
++----+----------+----------------+------------+-------+--------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from stuplaced;
++----+----------+--------+-------+---------+
+| id | RollNo   | Placed | CName | Package |
++----+----------+--------+-------+---------+
+|  1 | 2101CS59 | NULL   | NULL  |    NULL |
+|  2 | 2101CS52 | NULL   | NULL  |    NULL |
++----+----------+--------+-------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select * from stureg;
++----+----------+---------+-------------+
+| id | RollNo   | Name    | password    |
++----+----------+---------+-------------+
+|  1 | 2101CS59 | Pradeep | 1234567890q |
+|  2 | 2101CS52 | nishu   | 1234567890q |
++----+----------+---------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from studet;
++----+----------+------------------+-------+-------+------+
+| id | RollNo   | Name             | email | phone | DOB  |
++----+----------+------------------+-------+-------+------+
+|  1 | 2101CS59 | Pradeep          | NULL  | NULL  | NULL |
+|  2 | 2101CS52 | nishu            | NULL  | NULL  | NULL |
+|  3 | 2101mc22 | Rudraksh Jaiswal | NULL  | NULL  | NULL |
++----+----------+------------------+-------+-------+------+
+3 rows in set (0.03 sec)
+
+mysql> select * from stuplaced;
++----+----------+--------+-----------+---------+
+| id | RollNo   | Placed | CName     | Package |
++----+----------+--------+-----------+---------+
+|  1 | 2101CS59 | volvo  | sprinkler |  120000 |
+|  2 | 2101CS52 | NULL   | NULL      |    NULL |
+|  3 | 2101mc22 | NULL   | NULL      |    NULL |
++----+----------+--------+-----------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select * from stuplaced;
++----+----------+--------+-----------+---------+
+| id | RollNo   | Placed | CName     | Package |
++----+----------+--------+-----------+---------+
+|  1 | 2101CS59 | volvo  | sprinkler |  120000 |
+|  2 | 2101CS52 | NULL   | NULL      |    NULL |
+|  3 | 2101mc22 | NULL   | NULL      |    NULL |
++----+----------+--------+-----------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select * from studet;
++----+----------+------------------+-------+-------+------+
+| id | RollNo   | Name             | email | phone | DOB  |
++----+----------+------------------+-------+-------+------+
+|  1 | 2101CS59 | Pradeep          | NULL  | NULL  | NULL |
+|  2 | 2101CS52 | nishu            | NULL  | NULL  | NULL |
+|  3 | 2101mc22 | Rudraksh Jaiswal | NULL  | NULL  | NULL |
++----+----------+------------------+-------+-------+------+
+3 rows in set (0.00 sec)
+
+mysql> desc studet;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| id     | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo | varchar(30) | YES  | UNI | NULL    |                |
+| Name   | varchar(30) | YES  |     | NULL    |                |
+| email  | varchar(50) | YES  | UNI | NULL    |                |
+| phone  | varchar(50) | YES  |     | NULL    |                |
+| DOB    | date        | YES  |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+6 rows in set (0.08 sec)
+
+mysql> desc stuedu;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| id             | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo         | varchar(30) | YES  | UNI | NULL    |                |
+| Specialization | varchar(30) | YES  |     | NULL    |                |
+| Batch_year     | varchar(50) | YES  |     | NULL    |                |
+| tenth          | float       | YES  |     | NULL    |                |
+| twelve         | float       | YES  |     | NULL    |                |
+| CPI            | float       | YES  |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+7 rows in set (0.01 sec)
+
+mysql> desc stuarea;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| id         | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo     | varchar(30) | YES  | UNI | NULL    |
+   |
+| SDE        | varchar(30) | YES  |     | NULL    |                |
+| Management | varchar(50) | YES  |     | NULL    |
+   |
+| ML         | varchar(50) | YES  |     | NULL    |
+   |
+| Fin        | varchar(50) | YES  |     | NULL    |
+   |
+| Quant      | varchar(30) | YES  |     | NULL    |
+   |
+| Consuselect * from stuplaced;^C |     | NULL    |
+mysql>
+mysql>       | varchar(30) | YES  |     | NULL    |
+mysql>
+mysql> ------+-------------+------+-----+---------+----------------+
+mysql> in set (0.01 sec)
+mysql>
+mysql>
+mysql>
+mysql> select * from stuarea;
++----+----------+------+------------+------+------+-------+---------+------+
+| id | RollNo   | SDE  | Management | ML   | Fin  | Quant | Consult | core |
++----+----------+------+------------+------+------+-------+---------+------+
+|  1 | 2101CS59 | NULL | NULL       | NULL | NULL | NULL  | NULL    | NULL |
+|  2 | 2101CS52 | NULL | NULL       | NULL | NULL | NULL  | NULL    | NULL |
+|  3 | 2101mc22 | NULL | NULL       | NULL | NULL | NULL  | NULL    | NULL |
++----+----------+------+------------+------+------+-------+---------+------+
+3 rows in set (0.01 sec)
+
+mysql> create database PNRcomp;
+Query OK, 1 row affected (0.08 sec)
+
+mysql> use PNRcomp;
+Database changed
+mysql>
+mysql> show tables;
+Empty set (0.04 sec)
+
+mysql>
+mysql> ^C
+mysql> ^C
+mysql> use projectpnr;
+Database changed
+mysql>
+mysql> create table compreg(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(50) unique,Name varchar(30),password varchar(50));
+Query OK, 0 rows affected (0.15 sec)
+
+mysql> drop table compreg;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table compreg(id int NOT NULL AUTO_INCREMENT primary key,email varchar(50) unique,Name varchar(30),password varchar(50));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table compDet(id int NOT NULL AUTO_INCREMENT primary key,Name varchar(30) unique,Field varchar(30),email varchar(50) unique,phone varchar(50),website varchar(50));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table compEdu(id int NOT NULL AUTO_INCREMENT primary key,Name varchar(30) unique,CPI varchar(30),Salary_low varchar(50),Salary_high varchar(50),Mode varchar(50),year varchar(30));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select * from compreg;
+Empty set (0.01 sec)
+
+mysql> select * from compDet;
+Empty set (0.01 sec)
+
+mysql> select * from compEdu;
+Empty set (0.01 sec)
+
+mysql> select * from stuEdu;
++----+--------------------------+----------------+------------+-------+--------+------+
+| id | RollNo                   | Specialization | Batch_year | tenth | twelve | CPI  |
++----+--------------------------+----------------+------------+-------+--------+------+
+|  1 | 2101CS59                 | CSE            | 2021       |    10 |    100 |  8.5 |
+|  2 | 2101CS52                 | CSE            | 2021       |    10 |    100 |  8.5 |
+|  3 | 2101mc22                 | CSE            | 2021       |    10 |    100 |  8.5 |
+|  4 | ramanbansal278@gmail.com | NULL           | NULL       |  NULL |   NULL | NULL |
++----+--------------------------+----------------+------------+-------+--------+------+
+4 rows in set (0.01 sec)
+
+mysql> select * from compEdu;
++----+---------+------+------------+-------------+------+------+
+| id | Name    | CPI  | Salary_low | Salary_high | Mode | year |
++----+---------+------+------------+-------------+------+------+
+|  1 | Pradeep | NULL | NULL       | NULL        | NULL | NULL |
++----+---------+------+------------+-------------+------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from compDet;
++----+---------+-------+---------------------------------+-------+---------+
+| id | Name    | Field | email                           | phone | website |
++----+---------+-------+---------------------------------+-------+---------+
+|  1 | Pradeep | NULL  | mauryakumarpradeep494@gmail.com | NULL  | NULL    |
++----+---------+-------+---------------------------------+-------+---------+
+1 row in set (0.00 sec)
+
+mysql> select * from compreg;
++----+---------------------------------+---------+-------------+
+| id | email                           | Name    | password    |
++----+---------------------------------+---------+-------------+
+|  1 | mauryakumarpradeep494@gmail.com | Pradeep | 1234567890q |
++----+---------------------------------+---------+-------------+
+1 row in set (0.00 sec)
+
+mysql> create table Alumreg(id int NOT NULL AUTO_INCREMENT primary key,email varchar(50) unique,Name varchar(30),password varchar(50));
+Query OK, 0 rows affected (0.12 sec)
+
+mysql> drop table Alumreg
+    -> ;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> create table Alumreg(id int NOT NULL AUTO_INCREMENT primary key,Name varchar(50) unique,RollNo varchar(30),password varchar(50));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table AlumDet(id int NOT NULL AUTO_INCREMENT primary key,Name varchar(30) unique,Company varchar(30),CTC int,Email varchar(50),Phone varchar(50),Position varchar(50), Location varchar(50), Working varchar(50), CPI varchar(50));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select * from AlumDet
+    -> ;
+Empty set (0.01 sec)
+
+mysql> select * from AlumDet;
++----+----------------+---------+------+-------+-------+----------+----------+---------+------+
+| id | Name           | Company | CTC  | Email | Phone | Position | Location | Working | CPI  |
++----+----------------+---------+------+-------+-------+----------+----------+---------+------+
+|  1 | Ashutosh Kumar | NULL    | NULL | NULL  | NULL  | NULL     | NULL     | NULL    | NULL |
++----+----------------+---------+------+-------+-------+----------+----------+---------+------+
+1 row in set (0.01 sec)
+
+mysql> select * from compDet;
++----+---------+------------+----------------------+-------------+-----------------------------------+
+| id | Name    | Field      | email                | phone       | website                           |
++----+---------+------------+----------------------+-------------+-----------------------------------+
+|  1 | Pradeep | SDE        |                      | 65489643    | 2023-04-14                        |
+|  2 | Nitya   | SDE        | prdp@gmail.com       | 08287263558 | Nitya                             |
+|  3 | Nishu   | SDE        | pyahoo2881@gmail.com | 8285578264  | Diagonal channel of communication |
+|  4 | abuja   | Management | abu@gmail.com        | 8787878     | fdkjfdf                           |
++----+---------+------------+----------------------+-------------+-----------------------------------+
+4 rows in set (0.02 sec)
+
+mysql> select * from stuPlaced;
++----+--------------------------+--------+-----------+---------+
+| id | RollNo                   | Placed | CName     | Package |
++----+--------------------------+--------+-----------+---------+
+|  1 | 2101CS59                 | YES    | sprinkler |  120000 |
+|  2 | 2101CS52                 | NULL   | NULL      |    NULL |
+|  3 | 2101mc22                 | NULL   | NULL      |    NULL |
+|  4 | ramanbansal278@gmail.com | NULL   | NULL      |    NULL |
+|  5 | 2101CS60                 | YES    | google    |  100000 |
++----+--------------------------+--------+-----------+---------+
+5 rows in set (0.01 sec)
+
+mysql> create table Placements (id int NOT NULL AUTO_INCREMENT primary key,StuName varchar(50) unique,RollNo varchar(30),cName varchar(50),year int);
+Query OK, 0 rows affected (0.18 sec)
+
+mysql> select * from Placements;
++----+---------+----------+--------+------+
+| id | StuName | RollNo   | cName  | year |
++----+---------+----------+--------+------+
+|  1 | Pradeep | 2101CS59 | google | 2021 |
++----+---------+----------+--------+------+
+1 row in set (0.01 sec)
+
+mysql> select * from Placements;
++----+---------+----------+--------+------+
+| id | StuName | RollNo   | cName  | year |
++----+---------+----------+--------+------+
+|  2 | Pradeep | 2101CS59 | amazon | 2021 |
++----+---------+----------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from alumdet;
++----+----------------+-----------+------+----------------+-------------+----------+----------+---------+------+
+| id | Name           | Company   | CTC  | Email          | Phone       | Position | Location | Working | CPI  |
++----+----------------+-----------+------+----------------+-------------+----------+----------+---------+------+
+|  1 | Ashutosh Kumar | Diagonal  |  342 | ashu@gmail.com | 08285578264 | gbfs     | gfdsgsdf | fsd     | 8.5  |
+|  2 | parent         | Diagonal  |    2 | dfdf           | 222         | gbfs     | gfdsgsdf | fj      | 321  |
++----+----------------+-----------+------+----------------+-------------+----------+----------+---------+------+
+2 rows in set (0.01 sec)
+
+mysql> select * from alumreg;
++----+----------------+----------+-------------+
+| id | Name           | RollNo   | password    |
++----+----------------+----------+-------------+
+|  1 | Ashutosh Kumar | 2101CS59 | 1234567890q |
+|  2 | parent         | 2222cs33 | 123456789q  |
++----+----------------+----------+-------------+
+2 rows in set (0.01 sec)
+
+mysql> select * from Placements;
++----+---------+----------+-----------+------+
+| id | StuName | RollNo   | cName     | year |
++----+---------+----------+-----------+------+
+|  3 | Pradeep | 2101CS59 | amazon    | 2021 |
+|  4 | parent  | 2222cs33 | nishucomp | 2022 |
++----+---------+----------+-----------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from compedu;
++----+---------+------+------------+-------------+---------+------+
+| id | Name    | CPI  | Salary_low | Salary_high | Mode    | year |
++----+---------+------+------------+-------------+---------+------+
+|  1 | Pradeep | 8.5  | 243        | 543         | YES     | 231  |
+|  2 | Nitya   | 8    | 243        | 543         | NO      | 231  |
+|  3 | Nishu   | 8    | 243        | 543         | Online  | 231  |
+|  4 | abuja   | 9    | 100        | 1000        | Offline | 2022 |
++----+---------+------+------------+-------------+---------+------+
+4 rows in set (0.01 sec)
+
+mysql> Select Placements.cName from Placements JOIN compEdu ON Placements.cName = compEdu.Name where 600>=compEdu.Salary_low AND 600<=compEdu.Salary_high AND compEdu.year>=1 AND compEdu.year<=10000;
+Empty set (0.01 sec)
+
+mysql> select * from Placements;
++----+---------+----------+-----------+------+
+| id | StuName | RollNo   | cName     | year |
++----+---------+----------+-----------+------+
+|  3 | Pradeep | 2101CS59 | amazon    | 2021 |
+|  4 | parent  | 2222cs33 | nishucomp | 2022 |
++----+---------+----------+-----------+------+
+2 rows in set (0.00 sec)
+
+mysql> Select Placements.cName from Placements JOIN compEdu ON Placements.cName = compEdu.Name where 1000>=compEdu.Salary_low AND 1<=compEdu.Salary_high AND compEdu.year>=1 AND compEdu.year<=10000;
+Empty set (0.00 sec)
+
+mysql> Select Placements.cName from Placements JOIN compEdu ON Placements.cName = compEdu.Name ;
+Empty set (0.01 sec)
+
+mysql> insert into Placements values(NULL,'raman','2101cs64','Pradeep',2222);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Select Placements.cName from Placements JOIN compEdu ON Placements.cName = compEdu.Name where 1000>=compEdu.Salary_low AND 1<=compEdu.Salary_high AND compEdu.year>=1 AND compEdu.year<=10000;
++---------+
+| cName   |
++---------+
+| Pradeep |
++---------+
+1 row in set (0.01 sec)
+
+mysql> Select Placements.cName from Placements JOIN compEdu ON Placements.cName = compEdu.Name where 600>=compEdu.Salary_low AND 600<=compEdu.Salary_high AND compEdu.year>=1 AND compEdu.year<=10000;
+Empty set (0.00 sec)
+
+mysql> Select Placements.cName from Placements JOIN compEdu ON Placements.cName = compEdu.Name where 500>=compEdu.Salary_low AND 500<=compEdu.Salary_high AND compEdu.year>=1 AND compEdu.year<=10000;
++---------+
+| cName   |
++---------+
+| Pradeep |
++---------+
+1 row in set (0.00 sec)
+
+mysql> create table Sturesult (id int NOT NULL AUTO_INCREMENT primary key,StuName varchar(50), RollNo varchar(30),cName varchar(50),  CPI int, Salary_low int, Salary_high int, Mode varchar(50), company_since int);
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> desc Sturesult
+    -> ;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int         | NO   | PRI | NULL    | auto_increment |
+| StuName       | varchar(50) | YES  |     | NULL    |                |
+| RollNo        | varchar(30) | YES  |     | NULL    |                |
+| cName         | varchar(50) | YES  |     | NULL    |                |
+| CPI           | int         | YES  |     | NULL    |                |
+| Salary_low    | int         | YES  |     | NULL    |                |
+| Salary_high   | int         | YES  |     | NULL    |                |
+| Mode          | varchar(50) | YES  |     | NULL    |                |
+| company_since | int         | YES  |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+9 rows in set (0.06 sec)
+
+mysql> desc StuDet;
++--------+-------------+------+-----+---------+----------------+| Field  | Type        | Null | Key | Default | Extra          |+--------+-------------+------+-----+---------+----------------+| id     | int         | NO   | PRI | NULL    | auto_increment || RollNo | varchar(30) | YES  | UNI | NULL    |                || Name   | varchar(30) | YES  |     | NULL    |                || email  | varchar(50) | YES  | UNI | NULL    |                || phone  | varchar(50) | YES  |     | NULL    |                || DOB    | date        | YES  |     | NULL    |                |+--------+-------------+------+-----+---------+----------------+6 rows in set (0.01 sec)
+
+mysql> alter table StuDet add Gender varchar(30);
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc StuDet;
++--------+-------------+------+-----+---------+----------------+| Field  | Type        | Null | Key | Default | Extra          |+--------+-------------+------+-----+---------+----------------+| id     | int         | NO   | PRI | NULL    | auto_increment || RollNo | varchar(30) | YES  | UNI | NULL    |                || Name   | varchar(30) | YES  |     | NULL    |                || email  | varchar(50) | YES  | UNI | NULL    |                || phone  | varchar(50) | YES  |     | NULL    |                || DOB    | date        | YES  |     | NULL    |                || Gender | varchar(30) | YES  |     | NULL    |                |+--------+-------------+------+-----+---------+----------------+7 rows in set (0.00 sec)
+
+mysql> select * from stuDet;
++----+--------------------------+------------------+-------------------+------------+------------+--------+
+| id | RollNo                   | Name             | email             | phone      | DOB        | Gender |
++----+--------------------------+------------------+-------------------+------------+------------+--------+
+|  1 | 2101CS59                 | Pradeep          | prdp@gmail.com    | 8287263558 | 2023-04-20 | NULL   |
+|  2 | 2101CS52                 | nishu            | NULL              | NULL       | NULL       | NULL   |
+|  3 | 2101mc22                 | Rudraksh Jaiswal | NULL              | NULL       | NULL       | NULL   |
+|  4 | ramanbansal278@gmail.com | Pradeep kumar    | NULL              | NULL       | NULL       | NULL   |
+|  5 | 2101CS60                 | prashik          | prashik@gmail.com | 9999999999 | 2023-04-20 | NULL   |
++----+--------------------------+------------------+-------------------+------------+------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from stuDet;
++----+--------------------------+------------------+-------------------+------------+------------+--------+
+| id | RollNo                   | Name             | email             | phone      | DOB        | Gender |
++----+--------------------------+------------------+-------------------+------------+------------+--------+
+|  1 | 2101CS59                 | Pradeep          | prdp@gmail.com    | 8287263558 | 2023-04-20 | Male   |
+|  2 | 2101CS52                 | nishu            | NULL              | NULL       | NULL       | NULL   |
+|  3 | 2101mc22                 | Rudraksh Jaiswal | NULL              | NULL       | NULL       | NULL   |
+|  4 | ramanbansal278@gmail.com | Pradeep kumar    | NULL              | NULL       | NULL       | NULL   |
+|  5 | 2101CS60                 | prashik          | prashik@gmail.com | 9999999999 | 2023-04-20 | NULL   |
++----+--------------------------+------------------+-------------------+------------+------------+--------+
+5 rows in set (0.00 sec)
+
+
+
+mysql> desc aluDet;
+ERROR 1146 (42S02): Table 'projectpnr.aludet' doesn't exist
+mysql> show tables;
++----------------------+
+| Tables_in_projectpnr |
++----------------------+
+| alumdet              |
+| alumreg              |
+| compdet              |
+| compedu              |
+| compreg              |
+| placements           |
+| stuarea              |
+| studet               |
+| stuedu               |
+| stuplaced            |
+| stureg               |
+| sturesult            |
++----------------------+
+12 rows in set (0.02 sec)
+
+mysql> desc alumdet;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int         | NO   | PRI | NULL    | auto_increment |
+| Name     | varchar(30) | YES  | UNI | NULL    |                |
+| Company  | varchar(30) | YES  |     | NULL    |                |
+| CTC      | int         | YES  |     | NULL    |                |
+| Email    | varchar(50) | YES  |     | NULL    |                |
+| Phone    | varchar(50) | YES  |     | NULL    |                |
+| Position | varchar(50) | YES  |     | NULL    |                |
+| Location | varchar(50) | YES  |     | NULL    |                |
+| Working  | varchar(50) | YES  |     | NULL    |                |
+| CPI      | varchar(50) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+10 rows in set (0.00 sec)
+
+mysql> alter table alumdet add Gender varchar(30);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc Placements;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id      | int         | NO   | PRI | NULL    | auto_increment |
+| StuName | varchar(50) | YES  | UNI | NULL    |                |
+| RollNo  | varchar(30) | YES  |     | NULL    |                |
+| cName   | varchar(50) | YES  |     | NULL    |                |
+| year    | int         | YES  |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+5 rows in set (0.01 sec)
+
+mysql> alter table Placements add Gender varchar(30);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc Placements;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id      | int         | NO   | PRI | NULL    | auto_increment |
+| StuName | varchar(50) | YES  | UNI | NULL    |                |
+| RollNo  | varchar(30) | YES  |     | NULL    |                |
+| cName   | varchar(50) | YES  |     | NULL    |                |
+| year    | int         | YES  |     | NULL    |                |
+| Gender  | varchar(30) | YES  |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from sturesult;
+Empty set (0.01 sec)
+
+mysql> desc sturesult
+    -> ;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int         | NO   | PRI | NULL    | auto_increment |
+| StuName       | varchar(50) | YES  |     | NULL    |                |
+| RollNo        | varchar(30) | YES  |     | NULL    |                |
+| cName         | varchar(50) | YES  |     | NULL    |                |
+| CPI           | int         | YES  |     | NULL    |                |
+| Salary_low    | int         | YES  |     | NULL    |                |
+| Salary_high   | int         | YES  |     | NULL    |                |
+| Mode          | varchar(50) | YES  |     | NULL    |                |
+| company_since | int         | YES  |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+9 rows in set (0.00 sec)
+
+mysql> alter table Sturesult add Gender varchar(30);;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+ERROR:
+No query specified
+
+mysql> alter table Sturesult add Field varchar(30);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc sturesult;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int         | NO   | PRI | NULL    | auto_increment |
+| StuName       | varchar(50) | YES  |     | NULL    |                |
+| RollNo        | varchar(30) | YES  |     | NULL    |                |
+| cName         | varchar(50) | YES  |     | NULL    |                |
+| CPI           | int         | YES  |     | NULL    |                |
+| Salary_low    | int         | YES  |     | NULL    |                |
+| Salary_high   | int         | YES  |     | NULL    |                |
+| Mode          | varchar(50) | YES  |     | NULL    |                |
+| company_since | int         | YES  |     | NULL    |                |
+| Gender        | varchar(30) | YES  |     | NULL    |                |
+| Field         | varchar(30) | YES  |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+11 rows in set (0.00 sec)
+
+mysql> Select Placements.StuName, Placements.Gender , Placements.RollNo, Placements.cName, compEdu.CPI, compEd.Salary_low, compEdu.Salary_high, compEdu.Mode, compEdu.year from Placements JOIN compEdu ON Placements.cName = compEdu.Name JOIN compDet ON compEdu.Name = compDet.Name where 1>=compEdu.Salary_low AND 1<=compEdu.Salary_high AND compEdu.year>=1 AND compEdu.year<=10000 AND 10>=compEdu.CPI AND Placements.Gender='Male' AND compEdu.Name = 'google' AND compDet.Field='SDE';
+ERROR 1054 (42S22): Unknown column 'compEd.Salary_low' in 'field list'
+mysql> Select Placements.StuName, Placements.Gender , Placements.RollNo, Placements.cName, compEdu.CPI, compEdu.Salary_low, compEdu.Salary_high, compEdu.Mode, compEdu.year from Placements JOIN compEdu ON Placements.cName = compEdu.Name JOIN compDet ON compEdu.Name = compDet.Name where 1>=compEdu.Salary_low AND 1<=compEdu.Salary_high AND compEdu.year>=1 AND compEdu.year<=10000 AND 10>=compEdu.CPI AND Placements.Gender='Male' AND compEdu.Name = 'google' AND compDet.Field='SDE';
+Empty set (0.01 sec)
+
+mysql> desc sturesult;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int         | NO   | PRI | NULL    | auto_increment |
+| StuName       | varchar(50) | YES  |     | NULL    |                |
+| RollNo        | varchar(30) | YES  |     | NULL    |                |
+| cName         | varchar(50) | YES  |     | NULL    |                |
+| CPI           | int         | YES  |     | NULL    |                |
+| Salary_low    | int         | YES  |     | NULL    |                |
+| Salary_high   | int         | YES  |     | NULL    |                |
+| Mode          | varchar(50) | YES  |     | NULL    |                |
+| company_since | int         | YES  |     | NULL    |                |
+| Gender        | varchar(30) | YES  |     | NULL    |                |
+| Field         | varchar(30) | YES  |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+11 rows in set (0.00 sec)
+
+mysql> ^A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mysql> drop table compedu;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> create table compEdu(id int NOT NULL AUTO_INCREMENT primary key,Name varchar(30) unique,CPI varchar(30),Salary_low varchar(50),Salary_highdrop table compedu;^C
+mysql> select * from compdet;
++----+-----------+------------+-------------------------+------------+-----------------------+
+| id | Name      | field      | email                   | phone      | website               |
++----+-----------+------------+-------------------------+------------+-----------------------+
+|  1 | Name      | field      | email                   | phone                    |
+|  2 | Microsoft | Management | microsoft@hotmail.com   | 9876543210     |.microsoft.com
+|  3 | Amazon    | ML         | amazon@yahoo.com        | 5555555555        |azon.com
+|  4 | Flipkart  | Fin        | flipkart@rediffmail.com | 6666666666      |flipkart.com
+|  5 | Tata      | Core       | tata@tata.com           | 1112223333          |.com
+|  6 | Infosys   | SDE        | infosys@gmail.com       | 4445556666       |nfosys.com
+|  7 | L&T       | Consult    | lnt@lnt.com             | 7778889999  |www.larsentoubro.com
+|  8 | Accenture | Management | accenture@gmail.com     | 2223334444     |.accenture.com
+|  9 | Cognizant | ML         | cts@yahoo.com           | 3334445555     |.cognizant.com
+| 10 | HCL       | Quant      | hcl@gmail.com           | 8889990000       |cltech.com
++----+-----------+------------+-------------------------+------------+-----------------------+
+10 rows in set (0.00 sec)
+
+mysql> drop table compdet;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> create table compDet(id int NOT NULL AUTO_INCREMENT primary key,Name varchar(30) unique,Field varchar(30),email varchar(50) unique,phone varchar(50),website varchar(60) );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' varchar(60) )' at line 1
+mysql> create table compDet22(id int NOT NULL AUTO_INCREMENT primary key,Name varchar(30) unique,Field varchar(30),email varchar(50) unique,phone varchar(50) );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table compDet(id int NOT NULL AUTO_INCREMENT primary key,Name varchar(30) unique,Field varchar(30),email varchar(50) unique,phone varchar(50), website varchar(60) );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> LOAD DATA LOCAL INFILE "C:/xampp/htdocs/PNR/Excels/compdet.csv"
+    -> INTO TABLE compDet
+    -> FIELDS TERMINATED BY ','
+    -> ENCLOSED BY '"'
+    -> LINES TERMINATED BY '\n';
+Query OK, 10 rows affected, 2 warnings (0.01 sec)
+Records: 11  Deleted: 0  Skipped: 1  Warnings: 2
+
+mysql> select * from compdet;
++----+-----------+------------+-------------------------+------------+-----------------------+
+| id | Name      | Field      | email                   | phone      | website               |
++----+-----------+------------+-------------------------+------------+-----------------------+
+|  1 | Name      | Field      | email                   | phone                    |
+|  2 | Microsoft | Management | microsoft@hotmail.com   | 9876543210     |.microsoft.com
+|  3 | Amazon    | ML         | amazon@yahoo.com        | 5555555555        |azon.com
+|  4 | Flipkart  | Fin        | flipkart@rediffmail.com | 6666666666      |flipkart.com
+|  5 | Tata      | Core       | tata@tata.com           | 1112223333          |.com
+|  6 | Infosys   | SDE        | infosys@gmail.com       | 4445556666       |nfosys.com
+|  7 | L&T       | Consult    | lnt@lnt.com             | 7778889999  |www.larsentoubro.com
+|  8 | Accenture | Management | accenture@gmail.com     | 2223334444     |.accenture.com
+|  9 | Cognizant | ML         | cts@yahoo.com           | 3334445555     |.cognizant.com
+| 10 | HCL       | Quant      | hcl@gmail.com           | 8889990000       |cltech.com
++----+-----------+------------+-------------------------+------------+-----------------------+
+10 rows in set (0.00 sec)
+
+mysql> drop  table compedu;
+ERROR 1051 (42S02): Unknown table 'projectpnr.compedu'
+mysql> drop  table compEdu;
+ERROR 1051 (42S02): Unknown table 'projectpnr.compedu'
+mysql> show tables;
++----------------------+
+| Tables_in_projectpnr |
++----------------------+
+| alumdet              |
+| alumreg              |
+| alumreg1             |
+| alumreg2             |
+| compdet              |
+| compdet1             |
+| compdet22            |
+| compreg              |
+| compresult           |
+| placements           |
+| stuarea              |
+| studet               |
+| stuedu               |
+| stuplaced            |
+| stureg               |
+| sturesult            |
++----------------------+
+16 rows in set (0.01 sec)
+
+mysql> create table compEdu(id int NOT NULL AUTO_INCREMENT primary key,Name varchar(30) unique,CPI varchar(30),Salary_low varchar(50),Salary_high varchar(50),Mode varchar(50),year varchar(30));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> LOAD DATA LOCAL INFILE "C:/xampp/htdocs/PNR/Excels/compedu.csv"
+    -> INTO TABLE compEdu
+    -> FIELDS TERMINATED BY ','
+    -> ENCLOSED BY '"'
+    -> LINES TERMINATED BY '\n';
+Query OK, 10 rows affected, 2 warnings (0.01 sec)
+Records: 11  Deleted: 0  Skipped: 1  Warnings: 2
+
+mysql> select * from compedu;
++----+-----------+------+------------+-------------+---------+-------+
+| id | Name      | CPI  | Salary_low | Salary_high | Mode    | year  |
++----+-----------+------+------------+-------------+---------+-------+
+ | 1 | Name      | CPI  | Salary_low | Salary_high | Mode    | year
+ | 2 | Microsoft | 9    | 90000      | 180000      | Online  | 2009
+ | 3 | Amazon    | 8    | 80000      | 160000      | Partial | 2010
+ | 4 | Flipkart  | 8.2  | 80000      | 150000      | Offline | 2011
+ | 5 | Tata      | 7.5  | 70000      | 140000      | Online  | 2012
+ | 6 | Infosys   | 9.5  | 110000     | 220000      | Partial | 2013
+ | 7 | L&T       | 7    | 60000      | 120000      | Offline | 2014
+ | 8 | Accenture | 8.7  | 95000      | 190000      | Online  | 2015
+ | 9 | Cognizant | 8.3  | 85000      | 170000      | Partial | 2016
+ |10 | HCL       | 7.8  | 75000      | 150000      | Offline | 2017
++----+-----------+------+------------+-------------+---------+-------+
+10 rows in set (0.00 sec)
+
+mysql> drop table compreg;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table compreg(id int NOT NULL AUTO_INCREMENT primary key,email varchar(50) unique,Name varchar(30),password varchar(50) );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> LOAD DATA LOCAL INFILE "C:/xampp/htdocs/PNR/Excels/compreg.csv"
+    -> INTO TABLE compReg
+    -> FIELDS TERMINATED BY ','
+    -> ENCLOSED BY '"'
+    -> LINES TERMINATED BY '\n';
+Query OK, 10 rows affected, 2 warnings (0.01 sec)
+Records: 11  Deleted: 0  Skipped: 1  Warnings: 2
+
+mysql> select * from compreg;
++----+-------------------------+-----------+---------------+
+| id | email                   | Name      | password      |
++----+-------------------------+-----------+---------------+
+     | email                   | Name      | password
+  |2 | microsoft@hotmail.com   | Microsoft | password456
+  |3 | amazon@yahoo.com        | Amazon    | password789
+ | 4 | flipkart@rediffmail.com | Flipkart  | password1234
+ | 5 | tata@tata.com           | Tata      | password5678
+ | 6 | infosys@gmail.com       | Infosys   | password9101
+ | 7 | lnt@lnt.com             | L&T       | password1112
+ | 8 | accenture@gmail.com     | Accenture | password1314
+ | 9 | cts@yahoo.com           | Cognizant | password1516
+ |10 | hcl@gmail.com           | HCL       | password1718
++----+-------------------------+-----------+---------------+
+10 rows in set (0.01 sec)
+
+mysql> drop table stureg;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> create table stureg(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(50) unique,Name varchar(30),password varchar(50));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> LOAD DATA LOCAL INFILE "C:/xampp/htdocs/PNR/Excels/stureg.csv"
+    -> INTO TABLE stuReg
+    -> FIELDS TERMINATED BY ','
+    -> ENCLOSED BY '"'
+    -> LINES TERMINATED BY '\n';
+Query OK, 16 rows affected, 1 warning (0.01 sec)
+Records: 16  Deleted: 0  Skipped: 0  Warnings: 1
+
+mysql> select * from stureg;
++----+----------+------------+-------------+
+| id | RollNo   | Name       | password    |
++----+----------+------------+-------------+
+   | | RollNo   | Name       | password
+  |2 | 2021EE02 | Rohit      | password1
+  |3 | 2019CS07 | Shivani    | password2
+  |4 | 2020AI05 | Ankit      | password3
+  |5 | 2022MC01 | Swati      | password4
+  |6 | 2021EE06 | Vishal     | password5
+    || 2021EE01 | Vikas      | pass567
+  |8 | 2020MC01 | Kavya      | password8
+    || 2019AI05 | Alok       | pass789
+ |10 | 2022CS02 | Jhanvi     | password10
+    || 2021AI04 | Ravi       | pass111
+   | | 2019CS03 | Neha Singh | pass@123
+ |13 | 2020AI01 | Nishant    | password12
+    || 2021MC05 | Pradeep    | pass123
+    || 2019EE10 | Priya      | pass456
+ |16 | 2020CS02 | Rahul      | password34
++----+----------+------------+-------------+
+16 rows in set (0.00 sec)
+
+mysql> drop table stureg;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> create table stureg(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(50) unique,Name varchar(30),password varchar(50));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> LOAD DATA LOCAL INFILE "C:/xampp/htdocs/PNR/Excels/stureg.csv"
+    -> INTO TABLE stuReg
+    -> FIELDS TERMINATED BY ','
+    -> ENCLOSED BY '"'
+    -> LINES TERMINATED BY '\n';
+Query OK, 16 rows affected, 1 warning (0.01 sec)
+Records: 16  Deleted: 0  Skipped: 0  Warnings: 1
+
+mysql> select * from stureg;
++----+----------+------------+-------------+
+| id | RollNo   | Name       | password    |
++----+----------+------------+-------------+
+   | | RollNo   | Name       | password
+  |2 | 2021EE02 | Rohit      | password1
+  |3 | 2019CS07 | Shivani    | password2
+  |4 | 2020AI05 | Ankit      | password3
+  |5 | 2022MC01 | Swati      | password4
+  |6 | 2021EE06 | Vishal     | password5
+    || 2021EE01 | Vikas      | pass567
+  |8 | 2020MC01 | Kavya      | password8
+    || 2019AI05 | Alok       | pass789
+ |10 | 2022CS02 | Jhanvi     | password10
+    || 2021AI04 | Ravi       | pass111
+   | | 2019CS03 | Neha Singh | pass@123
+ |13 | 2020AI01 | Nishant    | password12
+    || 2021MC05 | Pradeep    | pass123
+    || 2019EE10 | Priya      | pass456
+ |16 | 2020CS02 | Rahul      | password34
++----+----------+------------+-------------+
+16 rows in set (0.00 sec)
+
+mysql> drop table studet;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> create table stuDet(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(30) unique,Name varchar(30),email varchar(50) unique,phone varchar(50),DOB date, Gender varchar(30) );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> LOAD DATA LOCAL INFILE "C:/xampp/htdocs/PNR/Excels/stuDet.csv"
+    -> INTO TABLE stuDet
+    -> FIELDS TERMINATED BY ','
+    -> ENCLOSED BY '"'
+    -> LINES TERMINATED BY '\n';
+Query OK, 16 rows affected, 2 warnings (0.01 sec)
+Records: 16  Deleted: 0  Skipped: 0  Warnings: 2
+
+mysql> select * from studet;
++----+----------+------------+--------------------------------+------------+------------+---------+
+| id | RollNo   | Name       | email                          | phone      | DOB        | Gender  |
++----+----------+------------+--------------------------------+------------+------------+---------+
+|  1 | RollNo   | Name       | email                          | phone |    | 0000-00-00 | Gender
+|  2 | 2021EE02 | Rohit      | rohit_2021EE02@iitp.ac.in      | 98765   |1 | 2002-06-01 | Male
+|  3 | 2019CS07 | Shivani    | shivani_2019CS07@iitp.ac.in    | 98765 |212 | 1999-10-03 | Female
+|  4 | 2020AI05 | Ankit      | ankit_2020AI05@iitp.ac.in      | 98765   |3 | 2000-04-12 | Male
+|  5 | 2022MC01 | Swati      | swati_2022MC01@iitp.ac.in      | 98765 |214 | 2003-09-21 | Female
+|  6 | 2021EE06 | Vishal     | vishal_2021EE06@iitp.ac.in     | 98765 |215 | 2002-11-11 | Others
+|  7 | 2021EE01 | Vikas      | vikas_2021EE01@iitp.ac.in      | 99634   |1 | 2002-06-11 | Male
+|  8 | 2020MC01 | Kavya      | kavya_2020MC01@iitp.ac.in      | 98261 |750 | 2000-11-23 | Female
+|  9 | 2019AI05 | Alok       | alok_2019AI05@iitp.ac.in       | 97748   |2 | 1999-09-18 | Male
+| 10 | 2022CS02 | Jhanvi     | jhanvi_2022CS02@iitp.ac.in     | 96521 |389 | 2003-02-05 | Female
+| 11 | 2021AI04 | Ravi       | ravi_2021AI04@iitp.ac.in       | 98765   |1 | 2002-01-29 | Male
+| 12 | 2019CS03 | Neha Singh | neha_singh_2019CS03@iitp.ac.in | 97747 |271 | 1999-03-21 | Female
+| 13 | 2020AI01 | Nishant    | nishant_2020AI01@iitp.ac.in    | 98267   |1 | 2000-07-12 | Male
+| 14 | 2021MC05 | Pradeep    | pradeep_2021MC05@iitp.ac.in    | 98562   |0 | 2002-02-08 | Male
+| 15 | 2019EE10 | Priya      | priya_2019EE10@iitp.ac.in      | 96325 |412 | 1999-05-15 | Female
+| 16 | 2020CS02 | Rahul      | rahul_2020CS02@iitp.ac.in      | 98765   |0 | 2000-08-02 | Male
++----+----------+------------+--------------------------------+------------+------------+---------+
+16 rows in set (0.00 sec)
+
+mysql> drop table stuedu;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table stuEdu(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(30) unique,Specialization varchar(30),Batch_year varchar(50),tenth varchar(50),twelve varchar(50),CPI varchar(30));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> LOAD DATA LOCAL INFILE "C:/xampp/htdocs/PNR/Excels/stuedu.csv"
+    -> INTO TABLE stuedu
+    -> FIELDS TERMINATED BY ','
+    -> ENCLOSED BY '"'
+    -> LINES TERMINATED BY '\n';
+Query OK, 16 rows affected, 1 warning (0.01 sec)
+Records: 16  Deleted: 0  Skipped: 0  Warnings: 1
+
+mysql> select * from stuedu;
++----+----------+----------------+------------+-------+--------+------+
+| id | RollNo   | Specialization | Batch_year | tenth | twelve | CPI  |
++----+----------+----------------+------------+-------+--------+------+
+ | 1 | RollNo   | Specialization | Batch_year | tenth | twelve | CPI
+ | 2 | 2021EE02 | EEE            | 2021       | 94.5  | 92.4   | 9.8
+ | 3 | 2019CS07 | CS             | 2019       | 89.2  | 85.8   | 8.9
+ | 4 | 2020AI05 | AI             | 2020       | 86.4  | 93.2   | 9.1
+ | 5 | 2022MC01 | MnC            | 2022       | 93    | 94     | 9.7
+ | 6 | 2021EE06 | EEE            | 2021       | 91.6  | 93.8   | 9.5
+ | 7 | 2021EE01 | EEE            | 2021       | 94.2  | 90.5   | 9.5
+ | 8 | 2020MC01 | MnC            | 2020       | 89.8  | 92.4   | 9.3
+ | 9 | 2019AI05 | AI             | 2019       | 90.4  | 87.3   | 9.1
+ |10 | 2022CS02 | CS             | 2022       | 96.2  | 94.3   | 9.9
+ |11 | 2021AI04 | AI             | 2021       | 92.5  | 88.2   | 9.3
+ |12 | 2019CS03 | AI             | 2019       | 91.6  | 90.4   | 9.6
+ |13 | 2020AI01 | CS             | 2020       | 87.8  | 89.4   | 9.2
+ |14 | 2021MC05 | MnC            | 2021       | 94.5  | 92.4   | 9.8
+ |15 | 2019EE10 | EEE            | 2019       | 92.4  | 87.6   | 9.4
+   | | 2020CS02 | AI             | 2020       | 88.6  | 86.4   | 9
++----+----------+----------------+------------+-------+--------+------+
+16 rows in set (0.00 sec)
+
+mysql> drop table stuarea;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table stuArea(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(30) unique,SDE varchar(30),Management varchar(50),ML varchar(50),Fin varchar(50),Quant varchar(30),Consult varchar(30),core  varchar(30));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> LOAD DATA LOCAL INFILE "C:/xampp/htdocs/PNR/Excels/stuarea.csv"
+    -> INTO TABLE stuarea
+    -> FIELDS TERMINATED BY ','
+    -> ENCLOSED BY '"'
+    -> LINES TERMINATED BY '\n';
+Query OK, 16 rows affected, 1 warning (0.01 sec)
+Records: 16  Deleted: 0  Skipped: 0  Warnings: 1
+
+mysql> select * from stuarea;
++----+----------+------+------------+------+------+-------+---------+-------+
+| id | RollNo   | SDE  | Management | ML   | Fin  | Quant | Consult | core  |
++----+----------+------+------------+------+------+-------+---------+-------+
+|  1 | RollNo   | SDE  | Management | ML   | Fin  | Quant | Consult | |ore
+|  2 | 2021EE02 | No   | Yes        | Yes  | No   | Yes   | No      |  |s
+|  3 | 2019CS07 | Yes  | No         | Yes  | No   | Yes   | No      |  |s
+|  4 | 2020AI05 | Yes  | Yes        | No   | Yes  | No    | Yes     |  |s
+|  5 | 2022MC01 | No   | Yes        | No   | Yes  | Yes   | No      |  |s
+|  6 | 2021EE06 | Yes  | Yes        | No   | No   | Yes   | No      |  |s
+|  7 | 2021EE01 | Yes  | Yes        | Yes  | No   | No    | Yes     |  |s
+|  8 | 2020MC01 | Yes  | No         | Yes  | Yes  | No    | Yes     |   |
+|  9 | 2019AI05 | No   | Yes        | Yes  | No   | Yes   | No      |  |s
+| 10 | 2022CS02 | Yes  | Yes        | No   | Yes  | Yes   | Yes     |  |s
+| 11 | 2021AI04 | Yes  | Yes        | No   | No   | Yes   | Yes     |  |s
+| 12 | 2019CS03 | Yes  | No         | Yes  | No   | Yes   | No      |  |s
+| 13 | 2020AI01 | Yes  | Yes        | No   | Yes  | Yes   | Yes     |   |
+| 14 | 2021MC05 | No   | Yes        | Yes  | Yes  | No    | No      |   |
+| 15 | 2019EE10 | Yes  | Yes        | No   | No   | Yes   | Yes     |  |s
+| 16 | 2020CS02 | No   | Yes        | Yes  | No   | Yes   | Yes     |  |s
++----+----------+------+------------+------+------+-------+---------+-------+
+16 rows in set (0.00 sec)
+
+mysql> drop table stuplaced;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> create table stuPlaced(id int NOT NULL AUTO_INCREMENT primary key,RollNo varchar(30) unique,Placed varchar(30),CName varchar(50),Package float);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> LOAD DATA LOCAL INFILE "C:/xampp/htdocs/PNR/Excels/stuPlaced.csv"
+    -> INTO TABLE stuPlaced
+    -> FIELDS TERMINATED BY ','
+    -> ENCLOSED BY '"'
+    -> LINES TERMINATED BY '\n';
+Query OK, 16 rows affected, 5 warnings (0.01 sec)
+Records: 16  Deleted: 0  Skipped: 0  Warnings: 5
+
+mysql> select * from stuplaced;
++----+----------+--------+-----------+---------+
+| id | RollNo   | Placed | CName     | Package |
++----+----------+--------+-----------+---------+
+|  1 | RollNo   | Placed | CName     |       0 |
+|  2 | 2021EE02 | Yes    | TCS       |  700000 |
+|  3 | 2019CS07 | Yes    | Infosys   |  650000 |
+|  4 | 2020AI05 | Yes    | Amazon    |  800000 |
+|  5 | 2022MC01 | Yes    | Infosys   |  600000 |
+|  6 | 2021EE06 | No     | NULL      |       0 |
+|  7 | 2021EE01 | Yes    | Infosys   |  650000 |
+|  8 | 2020MC01 | Yes    | NULL      |       0 |
+|  9 | 2019AI05 | Yes    | TCS       |  700000 |
+| 10 | 2022CS02 | Yes    | Deloitte  |  850000 |
+| 11 | 2021AI04 | Yes    | Wipro     |  600000 |
+| 12 | 2019CS03 | Yes    | TCS       |  700000 |
+| 13 | 2020AI01 | Yes    | Infosys   |  650000 |
+| 14 | 2021MC05 | Yes    | Wipro     |  600000 |
+| 15 | 2019EE10 | No     | NULL      |       0 |
+| 16 | 2020CS02 | Yes    | Accenture |  750000 |
++----+----------+--------+-----------+---------+
+16 rows in set (0.01 sec)
+
+mysql> select * from sturesult;
+Empty set (0.00 sec)
+
+mysql> select * from sturesult;
+Empty set (0.00 sec)
+
+mysql> desc placements;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id      | int         | NO   | PRI | NULL    | auto_increment |
+| StuName | varchar(50) | YES  | UNI | NULL    |                |
+| RollNo  | varchar(30) | YES  |     | NULL    |                |
+| cName   | varchar(50) | YES  |     | NULL    |                |
+| year    | int         | YES  |     | NULL    |                |
+| Gender  | varchar(30) | YES  |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+6 rows in set (0.01 sec)
+
+mysql> select * from placements;
++----+---------+----------+-----------+------+--------+
+| id | StuName | RollNo   | cName     | year | Gender |
++----+---------+----------+-----------+------+--------+
+|  4 | parent  | 2222cs33 | nishucomp | 2022 | NULL   |
+|  5 | raman   | 2101cs64 | Pradeep   | 2222 | NULL   |
+| 14 | prdp    | 2101cs01 | google    | 2021 | Male   |
+| 19 | Pradeep | 2101cs59 |           | 2021 | Male   |
++----+---------+----------+-----------+------+--------+
+4 rows in set (0.00 sec)
+
+mysql> desc compedu;
++-------------+-------------+------+-----+---------+----------------+| Field       | Type        | Null | Key | Default | Extra          |+-------------+-------------+------+-----+---------+----------------+| id          | int         | NO   | PRI | NULL    | auto_increment || Name        | varchar(30) | YES  | UNI | NULL    |                || CPI         | varchar(30) | YES  |     | NULL    |                || Salary_low  | varchar(50) | YES  |     | NULL    |                || Salary_high | varchar(50) | YES  |     | NULL    |                || Mode        | varchar(50) | YES  |     | NULL    |                || year        | varchar(30) | YES  |     | NULL    |                |+-------------+-------------+------+-----+---------+----------------+7 rows in set (0.00 sec)
+
+mysql> alter table modify CPI float;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CPI float' at line 1
+mysql> alter table compedu modify CPI float;
+ERROR 1265 (01000): Data truncated for column 'CPI' at row 1
+mysql> select * from compedu;
++----+-----------+------+------------+-------------+---------+-------+
+| id | Name      | CPI  | Salary_low | Salary_high | Mode    | year  |
++----+-----------+------+------------+-------------+---------+-------+
+ | 1 | Name      | CPI  | Salary_low | Salary_high | Mode    | year
+ | 2 | Microsoft | 9    | 90000      | 180000      | Online  | 2009
+ | 3 | Amazon    | 8    | 80000      | 160000      | Partial | 2010
+ | 4 | Flipkart  | 8.2  | 80000      | 150000      | Offline | 2011
+ | 5 | Tata      | 7.5  | 70000      | 140000      | Online  | 2012
+ | 6 | Infosys   | 9.5  | 110000     | 220000      | Partial | 2013
+ | 7 | L&T       | 7    | 60000      | 120000      | Offline | 2014
+ | 8 | Accenture | 8.7  | 95000      | 190000      | Online  | 2015
+ | 9 | Cognizant | 8.3  | 85000      | 170000      | Partial | 2016
+ |10 | HCL       | 7.8  | 75000      | 150000      | Offline | 2017
++----+-----------+------+------------+-------------+---------+-------+
+10 rows in set (0.00 sec)
+
+mysql> delete from compedu where Name='Name';
+Query OK, 1 row affected (0.01 sec)
+
+mysql> alter table compedu modify CPI float;
+Query OK, 9 rows affected (0.06 sec)
+Records: 9  Duplicates: 0  Warnings: 0
+
+mysql> desc Placements;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id      | int         | NO   | PRI | NULL    | auto_increment |
+| StuName | varchar(50) | YES  | UNI | NULL    |                |
+| RollNo  | varchar(30) | YES  |     | NULL    |                |
+| cName   | varchar(50) | YES  |     | NULL    |                |
+| year    | int         | YES  |     | NULL    |                |
+| Gender  | varchar(30) | YES  |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from placements;
++----+---------+----------+-----------+------+--------+
+| id | StuName | RollNo   | cName     | year | Gender |
++----+---------+----------+-----------+------+--------+
+|  4 | parent  | 2222cs33 | nishucomp | 2022 | NULL   |
+|  5 | raman   | 2101cs64 | Pradeep   | 2222 | NULL   |
+| 14 | prdp    | 2101cs01 | google    | 2021 | Male   |
+| 19 | Pradeep | 2101cs59 |           | 2021 | Male   |
++----+---------+----------+-----------+------+--------+
+4 rows in set (0.00 sec)
+
+mysql> update placements set cName='amazon' where id=19;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update placements set cName='Microsoft' where id=19;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from placements;
++----+---------+----------+-----------+------+--------+
+| id | StuName | RollNo   | cName     | year | Gender |
++----+---------+----------+-----------+------+--------+
+|  4 | parent  | 2222cs33 | nishucomp | 2022 | NULL   |
+|  5 | raman   | 2101cs64 | Pradeep   | 2222 | NULL   |
+| 14 | prdp    | 2101cs01 | google    | 2021 | Male   |
+| 19 | Pradeep | 2101cs59 | Microsoft | 2021 | Male   |
++----+---------+----------+-----------+------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from alumreg;
++----+--------------+----------+-------------+
+| id | Name         | RollNo   | password    |
++----+--------------+----------+-------------+
+|  1 | Name         | RollNo   | 1234567890q |
+|  2 | Nityanand    | 2020CS01 | 1234567890q |
+|  3 | Rohit        | 2020AI02 | 1234567890q |
+|  4 | Ashu         | 2021EE03 | 1234567890q |
+|  5 | Rahul        | 2021CS04 | 1234567890q |
+|  6 | Anjali       | 2022MC05 | 1234567890q |
+|  7 | Suman        | 2022CS06 | 1234567890q |
+|  8 | Sanjay       | 2023AI07 | 1234567890q |
+|  9 | Ravi         | 2023EE08 | 1234567890q |
+| 10 | Manish       | 2024CS09 | 1234567890q |
+| 11 | Aditya Singh | 2030EE32 | 1234567890q |
+| 12 | Aman Yadav   | 2028CS45 | 1234567890q |
+| 13 | Ankit Kumar  | 2029MC78 | 1234567890q |
+| 14 | Rajesh Patel | 2027CS11 | 1234567890q |
+| 15 | Sonali Singh | 2031AI23 | 1234567890q |
+| 16 | Dilip Kumar  | 2001CS99 | 1234567890q |
++----+--------------+----------+-------------+
+16 rows in set (0.00 sec)
+
+mysql> show tables;
++----------------------+
+| Tables_in_projectpnr |
++----------------------+
+| alumdet              |
+| alumreg              |
+| alumreg1             |
+| alumreg2             |
+| compdet              |
+| compdet1             |
+| compdet22            |
+| compedu              |
+| compreg              |
+| compresult           |
+| placements           |
+| stuarea              |
+| studet               |
+| stuedu               |
+| stuplaced            |
+| stureg               |
+| sturesult            |
++----------------------+
+17 rows in set (0.01 sec)
+
+mysql> desc alumdet;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int         | NO   | PRI | NULL    | auto_increment |
+| Name     | varchar(30) | YES  | UNI | NULL    |                |
+| Company  | varchar(30) | YES  |     | NULL    |                |
+| CTC      | int         | YES  |     | NULL    |                |
+| Email    | varchar(50) | YES  |     | NULL    |                |
+| Phone    | varchar(50) | YES  |     | NULL    |                |
+| Position | varchar(50) | YES  |     | NULL    |                |
+| Location | varchar(50) | YES  |     | NULL    |                |
+| Working  | varchar(50) | YES  |     | NULL    |                |
+| CPI      | varchar(50) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+10 rows in set (0.01 sec)
+
+mysql> desc alumreg;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int         | NO   | PRI | NULL    | auto_increment |
+| Name     | varchar(50) | YES  | UNI | NULL    |                |
+| RollNo   | varchar(30) | YES  |     | NULL    |                |
+| password | varchar(50) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.01 sec)
+
+mysql> select * from alumdet;
++----+--------------+--------------+---------+-------------------------------+------------+--------------+---------------+-----------+------+
+| id | Name         | Company      | CTC     | Email
+        | Phone      | Position     | Location      | Working   | CPI  |
++----+--------------+--------------+---------+-------------------------------+------------+--------------+---------------+-----------+------+
+|  1 | Name         | Company      |       0 | Email
+        | Phone      | Position     | Location      | Working   | CPI  |
+|  2 | Nityanand    | Amazon       | 2000000 | nityanand_2020CS01@iitp.ac.in | 9898989898 | SDE II       | Bangalore     | 2020-2024 | 8.44 |
+|  3 | Rohit        | Google       | 2500000 | rohit_2020AI02@iitp.ac.in     | 9876543210 | SWE III      | Hyderabad     | 2020-2024 | 9.02 |
+|  4 | Ashu         | Microsoft    | 1800000 | ashu_2021EE03@iitp.ac.in      | 9876543210 | Data Sci     | Mumbai        | 2021-2025 | 8.78 |
+|  5 | Rahul        | IBM          | 2200000 | rahul_2021CS04@iitp.ac.in     | 9876543210 | SDE III      | Bangalore     | 2021-2025 | 8.9  |
+|  6 | Anjali       | Uber         | 1500000 | anjali_2022MC05@iitp.ac.in    | 9876543210 | QA Eng       | San Francisco | 2022-2026 | 8.2  |
+|  7 | Suman        | Facebook     | 2800000 | suman_2022CS06@iitp.ac.in     | 9898989898 | SWE III      | Menlo Park    | 2022-2026 | 9.5  |
+|  8 | Sanjay       | Apple        | 3000000 | sanjay_2023AI07@iitp.ac.in    | 9876543210 | AI Res       | Cupertino     | 2023-2027 | 9.67 |
+|  9 | Ravi         | Nvidia       | 1900000 | ravi_2023EE08@iitp.ac.in      | 9898989898 | HW Eng       | Santa Clara   | 2023-2027 | 8.33 |
+| 10 | Manish       | Intel        | 2500000 | manish_2024CS09@iitp.ac.in    | 9876543210 | SDE III      | Bangalore     | 2024-2028 | 9.1  |
+| 11 | Aditya Singh | TCS          |  750000 | aditya2030ee32@iitp.ac.in     | 9774356734 | Backend Dev  | Hyderabad     | 2021-2025 | 8.2  |
+| 12 | Aman Yadav   | Google       | 1400000 | aman2028cs45@iitp.ac.in       | 8907876453 | Full Stack   | Bangalore     | 2021-2025 | 9.3  |
+| 13 | Ankit Kumar  | Amazon       | 1200000 | ankit2029mc78@iitp.ac.in      | 7854795632 | ML Engineer  | Delhi         | 2021-2025 | 8.8  |
+| 14 | Rajesh Patel | Microsoft    | 1250000 | rajesh2027cs11@iitp.ac.in     | 9875643210 | Cloud Dev    | Noida         | 2021-2025 | 9.1  |
+| 15 | Sonali Singh | Oracle       |  950000 | sonali2031ai23@iitp.ac.in     | 7458963201 | Data Analyst | Mumbai        | 2021-2025 | 8.5  |
+| 16 | Dilip Kumar  |              |     676 |
+        |            |              |               |           |      |
+| 17 | mota bhai    | wetpumsy.com |       7 | iampumsy@boob.com             | 696969696  | cowgirl      | bed           | 5 min     | 9    |
++----+--------------+--------------+---------+-------------------------------+------------+--------------+---------------+-----------+------+
+17 rows in set (0.02 sec)
+       select * from alumdet;
++----+--------------+--------------+---------+-------------------------------+------------+--------------+---------------+-----------+------+
+| id | Name         | Company      | CTC     | Email                         | Phone      | Position     | Location      | Working   | CPI  |
++----+--------------+--------------+---------+-------------------------------+------------+--------------+---------------+-----------+------+
+|  1 | Name         | Company      |       0 | Email                         | Phone      | Position     | Location      | Working   | CPI  |
+|  2 | Nityanand    | Amazon       | 2000000 | nityanand_2020CS01@iitp.ac.in | 9898989898 | SDE II       | Bangalore     | 2020-2024 | 8.44 |
+|  3 | Rohit        | Google       | 2500000 | rohit_2020AI02@iitp.ac.in     | 9876543210 | SWE III      | Hyderabad     | 2020-2024 | 9.02 |
+|  4 | Ashu         | Microsoft    | 1800000 | ashu_2021EE03@iitp.ac.in      | 9876543210 | Data Sci     | Mumbai        | 2021-2025 | 8.78 |
+|  5 | Rahul        | IBM          | 2200000 | rahul_2021CS04@iitp.ac.in     | 9876543210 | SDE III      | Bangalore     | 2021-2025 | 8.9  |
+|  6 | Anjali       | Uber         | 1500000 | anjali_2022MC05@iitp.ac.in    | 9876543210 | QA Eng       | San Francisco | 2022-2026 | 8.2  |
+|  7 | Suman        | Facebook     | 2800000 | suman_2022CS06@iitp.ac.in     | 9898989898 | SWE III      | Menlo Park    | 2022-2026 | 9.5  |
+|  8 | Sanjay       | Apple        | 3000000 | sanjay_2023AI07@iitp.ac.in    | 9876543210 | AI Res       | Cupertino     | 2023-2027 | 9.67 |
+|  9 | Ravi         | Nvidia       | 1900000 | ravi_2023EE08@iitp.ac.in      | 9898989898 | HW Eng       | Santa Clara   | 2023-2027 | 8.33 |
+| 10 | Manish       | Intel        | 2500000 | manish_2024CS09@iitp.ac.in    | 9876543210 | SDE III      | Bangalore     | 2024-2028 | 9.1  |
+| 11 | Aditya Singh | TCS          |  750000 | aditya2030ee32@iitp.ac.in     | 9774356734 | Backend Dev  | Hyderabad     | 2021-2025 | 8.2  |
+| 12 | Aman Yadav   | Google       | 1400000 | aman2028cs45@iitp.ac.in       | 8907876453 | Full Stack   | Bangalore     | 2021-2025 | 9.3  |
+| 13 | Ankit Kumar  | Amazon       | 1200000 | ankit2029mc78@iitp.ac.in      | 7854795632 | ML Engineer  | Delhi         | 2021-2025 | 8.8  |
+| 14 | Rajesh Patel | Microsoft    | 1250000 | rajesh2027cs11@iitp.ac.in     | 9875643210 | Cloud Dev    | Noida         | 2021-2025 | 9.1  |
+| 15 | Sonali Singh | Oracle       |  950000 | sonali2031ai23@iitp.ac.in     | 7458963201 | Data Analyst | Mumbai        | 2021-2025 | 8.5  |
+| 16 | Dilip Kumar  |              |     676 |                               |            |              |               |           |      |
+| 17 | mota bhai    | wetpumsy.com |       7 | iampumsy@boob.com             | 696969696  | cowgirl      | bed           | 5 min     | 9    |
++----+--------------+--------------+---------+-------------------------------+------------+--------------+---------------+-----------+------+
+17 rows in set (0.00 sec)
+
+mysql> desc alumdet;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int         | NO   | PRI | NULL    | auto_increment |
+| Name     | varchar(30) | YES  | UNI | NULL    |                |
+| Company  | varchar(30) | YES  |     | NULL    |                |
+| CTC      | int         | YES  |     | NULL    |                |
+| Email    | varchar(50) | YES  |     | NULL    |                |
+| Phone    | varchar(50) | YES  |     | NULL    |                |
+| Position | varchar(50) | YES  |     | NULL    |                |
+| Location | varchar(50) | YES  |     | NULL    |                |
+| Working  | varchar(50) | YES  |     | NULL    |                |
+| CPI      | varchar(50) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+10 rows in set (0.02 sec)
+
+mysql> desc alumreg;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int         | NO   | PRI | NULL    | auto_increment |
+| Name     | varchar(50) | YES  | UNI | NULL    |                |
+| RollNo   | varchar(30) | YES  |     | NULL    |                |
+| password | varchar(50) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> alter table alumdet add column Gender varchar(40) ;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc alumdet;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int         | NO   | PRI | NULL    | auto_increment |
+| Name     | varchar(30) | YES  | UNI | NULL    |                |
+| Company  | varchar(30) | YES  |     | NULL    |                |
+| CTC      | int         | YES  |     | NULL    |                |
+| Email    | varchar(50) | YES  |     | NULL    |                |
+| Phone    | varchar(50) | YES  |     | NULL    |                |
+| Position | varchar(50) | YES  |     | NULL    |                |
+| Location | varchar(50) | YES  |     | NULL    |                |
+| Working  | varchar(50) | YES  |     | NULL    |                |
+| CPI      | varchar(50) | YES  |     | NULL    |                |
+| Gender   | varchar(40) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+11 rows in set (0.01 sec)
+
+mysql> desc sturesults;
+ERROR 1146 (42S02): Table 'projectpnr.sturesults' doesn't exist
+mysql> desc sturesult;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int         | NO   | PRI | NULL    | auto_increment |
+| StuName       | varchar(50) | YES  |     | NULL    |                |
+| RollNo        | varchar(30) | YES  |     | NULL    |                |
+| cName         | varchar(50) | YES  |     | NULL    |                |
+| CPI           | int         | YES  |     | NULL    |                |
+| Salary_low    | int         | YES  |     | NULL    |                |
+| Salary_high   | int         | YES  |     | NULL    |                |
+| Mode          | varchar(50) | YES  |     | NULL    |                |
+| company_since | int         | YES  |     | NULL    |                |
+| Gender        | varchar(30) | YES  |     | NULL    |                |
+| Field         | varchar(30) | YES  |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+11 rows in set (0.00 sec)
+
+mysql> desc Placements;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id      | int         | NO   | PRI | NULL    | auto_increment |
+| StuName | varchar(50) | YES  | UNI | NULL    |                |
+| RollNo  | varchar(30) | YES  |     | NULL    |                |
+| cName   | varchar(50) | YES  |     | NULL    |                |
+| year    | int         | YES  |     | NULL    |                |
+| Gender  | varchar(30) | YES  |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from Placements;
++----+--------------+----------+-----------+------+--------+
+| id | StuName      | RollNo   | cName     | year | Gender |
++----+--------------+----------+-----------+------+--------+
+|  4 | parent       | 2222cs33 | nishucomp | 2022 | NULL   |
+|  5 | raman        | 2101cs64 | Pradeep   | 2222 | NULL   |
+| 14 | prdp         | 2101cs01 | google    | 2021 | Male   |
+| 19 | Pradeep      | 2101cs59 | Microsoft | 2021 | Male   |
+| 21 | Salman Singh | 2101CS99 | Ola       | 2021 | Male   |
++----+--------------+----------+-----------+------+--------+
+5 rows in set (0.01 sec)
+
+mysql> select * from stureg;
++----+----------+--------------+-------------+
+| id | RollNo   | Name         | password    |
++----+----------+--------------+-------------+
+   | | RollNo   | Name         | password
+  |2 | 2021EE02 | Rohit        | password1
+  |3 | 2019CS07 | Shivani      | password2
+  |4 | 2020AI05 | Ankit        | password3
+  |5 | 2022MC01 | Swati        | password4
+  |6 | 2021EE06 | Vishal       | password5
+    || 2021EE01 | Vikas        | pass567
+  |8 | 2020MC01 | Kavya        | password8
+    || 2019AI05 | Alok         | pass789
+ |10 | 2022CS02 | Jhanvi       | password10
+    || 2021AI04 | Ravi         | pass111
+   | | 2019CS03 | Neha Singh   | pass@123
+ |13 | 2020AI01 | Nishant      | password12
+    || 2021MC05 | Pradeep      | pass123
+    || 2019EE10 | Priya        | pass456
+ |16 | 2020CS02 | Rahul        | password34
+| 32 | 2101cs59 | Pradeep      | 1234567890q |
+| 33 | 2101CS99 | Salman Singh | 1234567a    |
++----+----------+--------------+-------------+
+18 rows in set (0.00 sec)
+
+mysql> select * from alumreg;
++----+--------------+----------+-------------+
+| id | Name         | RollNo   | password    |
++----+--------------+----------+-------------+
+|  1 | Name         | RollNo   | 1234567890q |
+|  2 | Nityanand    | 2020CS01 | 1234567890q |
+|  3 | Rohit        | 2020AI02 | 1234567890q |
+|  4 | Ashu         | 2021EE03 | 1234567890q |
+|  5 | Rahul        | 2021CS04 | 1234567890q |
+|  6 | Anjali       | 2022MC05 | 1234567890q |
+|  7 | Suman        | 2022CS06 | 1234567890q |
+|  8 | Sanjay       | 2023AI07 | 1234567890q |
+|  9 | Ravi         | 2023EE08 | 1234567890q |
+| 10 | Manish       | 2024CS09 | 1234567890q |
+| 11 | Aditya Singh | 2030EE32 | 1234567890q |
+| 12 | Aman Yadav   | 2028CS45 | 1234567890q |
+| 13 | Ankit Kumar  | 2029MC78 | 1234567890q |
+| 14 | Rajesh Patel | 2027CS11 | 1234567890q |
+| 15 | Sonali Singh | 2031AI23 | 1234567890q |
+| 16 | Dilip Kumar  | 2001CS99 | 1234567890q |
+| 17 | mota bhai    | 1901cs06 | 99999999o   |
++----+--------------+----------+-------------+
+17 rows in set (0.00 sec)
+
+mysql> select * from compreg;
++----+-------------------------+-----------+---------------+
+| id | email                   | Name      | password      |
++----+-------------------------+-----------+---------------+
+     | email                   | Name      | password
+  |2 | microsoft@hotmail.com   | Microsoft | password456
+  |3 | amazon@yahoo.com        | Amazon    | password789
+ | 4 | flipkart@rediffmail.com | Flipkart  | password1234
+ | 5 | tata@tata.com           | Tata      | password5678
+ | 6 | infosys@gmail.com       | Infosys   | password9101
+ | 7 | lnt@lnt.com             | L&T       | password1112
+ | 8 | accenture@gmail.com     | Accenture | password1314
+ | 9 | cts@yahoo.com           | Cognizant | password1516
+ |10 | hcl@gmail.com           | HCL       | password1718
+| 11 | ola@gmail.com           | Ola       | 1234567890q   |
+| 12 | andamaggi@hehe.com      | eggshop   | 11111111q     |
++----+-------------------------+-----------+---------------+
+12 rows in set (0.00 sec)
+
+mysql> desc compreg;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int         | NO   | PRI | NULL    | auto_increment |
+| email    | varchar(50) | YES  | UNI | NULL    |                |
+| Name     | varchar(30) | YES  |     | NULL    |                |
+| password | varchar(50) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> desc compdet;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id      | int         | NO   | PRI | NULL    | auto_increment |
+| Name    | varchar(30) | YES  | UNI | NULL    |                |
+| Field   | varchar(30) | YES  |     | NULL    |                |
+| email   | varchar(50) | YES  | UNI | NULL    |                |
+| phone   | varchar(50) | YES  |     | NULL    |                |
+| website | varchar(60) | YES  |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from compresult;
+Empty set (0.00 sec)
+
+mysql> desc studet;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| id     | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo | varchar(30) | YES  | UNI | NULL    |                |
+| Name   | varchar(30) | YES  |     | NULL    |                |
+| email  | varchar(50) | YES  | UNI | NULL    |                |
+| phone  | varchar(50) | YES  |     | NULL    |                |
+| DOB    | date        | YES  |     | NULL    |                |
+| Gender | varchar(30) | YES  |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from compreg;
++----+-------------------------+-----------+---------------+
+| id | email                   | Name      | password      |
++----+-------------------------+-----------+---------------+
+     | email                   | Name      | password
+  |2 | microsoft@hotmail.com   | Microsoft | password456
+  |3 | amazon@yahoo.com        | Amazon    | password789
+ | 4 | flipkart@rediffmail.com | Flipkart  | password1234
+ | 5 | tata@tata.com           | Tata      | password5678
+ | 6 | infosys@gmail.com       | Infosys   | password9101
+ | 7 | lnt@lnt.com             | L&T       | password1112
+ | 8 | accenture@gmail.com     | Accenture | password1314
+ | 9 | cts@yahoo.com           | Cognizant | password1516
+ |10 | hcl@gmail.com           | HCL       | password1718
+| 11 | ola@gmail.com           | Ola       | 1234567890q   |
+| 12 | andamaggi@hehe.com      | eggshop   | 11111111q     |
++----+-------------------------+-----------+---------------+
+12 rows in set (0.00 sec)
+
+mysql> select * from alumreg;
++----+--------------+----------+-------------+
+| id | Name         | RollNo   | password    |
++----+--------------+----------+-------------+
+|  1 | Name         | RollNo   | 1234567890q |
+|  2 | Nityanand    | 2020CS01 | 1234567890q |
+|  3 | Rohit        | 2020AI02 | 1234567890q |
+|  4 | Ashu         | 2021EE03 | 1234567890q |
+|  5 | Rahul        | 2021CS04 | 1234567890q |
+|  6 | Anjali       | 2022MC05 | 1234567890q |
+|  7 | Suman        | 2022CS06 | 1234567890q |
+|  8 | Sanjay       | 2023AI07 | 1234567890q |
+|  9 | Ravi         | 2023EE08 | 1234567890q |
+| 10 | Manish       | 2024CS09 | 1234567890q |
+| 11 | Aditya Singh | 2030EE32 | 1234567890q |
+| 12 | Aman Yadav   | 2028CS45 | 1234567890q |
+| 13 | Ankit Kumar  | 2029MC78 | 1234567890q |
+| 14 | Rajesh Patel | 2027CS11 | 1234567890q |
+| 15 | Sonali Singh | 2031AI23 | 1234567890q |
+| 16 | Dilip Kumar  | 2001CS99 | 1234567890q |
+| 17 | mota bhai    | 1901cs06 | 99999999o   |
++----+--------------+----------+-------------+
+17 rows in set (0.00 sec)
+
+mysql> select * from studet;
++----+----------+--------------+--------------------------------+------------+------------+---------+
+| id | RollNo   | Name         | email                          | phone      | DOB        | Gender  |
++----+----------+--------------+--------------------------------+------------+------------+---------+
+ | 1 | RollNo   | Name         | email                          | phone      | 0000-00-00 | Gender
+   | | 2021EE02 | Rohit        | rohit_2021EE02@iitp.ac.in      | 9876543211 | 2002-06-01 | Male
+ | 3 | 2019CS07 | Shivani      | shivani_2019CS07@iitp.ac.in    | 9876543212 | 1999-10-03 | Female
+   | | 2020AI05 | Ankit        | ankit_2020AI05@iitp.ac.in      | 9876543213 | 2000-04-12 | Male
+ | 5 | 2022MC01 | Swati        | swati_2022MC01@iitp.ac.in      | 9876543214 | 2003-09-21 | Female
+ | 6 | 2021EE06 | Vishal       | vishal_2021EE06@iitp.ac.in     | 9876543215 | 2002-11-11 | Others
+   | | 2021EE01 | Vikas        | vikas_2021EE01@iitp.ac.in      | 9963487951 | 2002-06-11 | Male
+ | 8 | 2020MC01 | Kavya        | kavya_2020MC01@iitp.ac.in      | 9826143750 | 2000-11-23 | Female
+   | | 2019AI05 | Alok         | alok_2019AI05@iitp.ac.in       | 9774857382 | 1999-09-18 | Male
+ |10 | 2022CS02 | Jhanvi       | jhanvi_2022CS02@iitp.ac.in     | 9652147389 | 2003-02-05 | Female
+   | | 2021AI04 | Ravi         | ravi_2021AI04@iitp.ac.in       | 9876543211 | 2002-01-29 | Male
+ |12 | 2019CS03 | Neha Singh   | neha_singh_2019CS03@iitp.ac.in | 9774759271 | 1999-03-21 | Female
+   | | 2020AI01 | Nishant      | nishant_2020AI01@iitp.ac.in    | 9826758381 | 2000-07-12 | Male
+   | | 2021MC05 | Pradeep      | pradeep_2021MC05@iitp.ac.in    | 9856231470 | 2002-02-08 | Male
+ |15 | 2019EE10 | Priya        | priya_2019EE10@iitp.ac.in      | 9632587412 | 1999-05-15 | Female
+   | | 2020CS02 | Rahul        | rahul_2020CS02@iitp.ac.in      | 9876543210 | 2000-08-02 | Male
+| 32 | 2101cs59 | Pradeep      | pyahoo2881@gmail.com           | 9876543210 | 2023-04-18 | Male    |
+| 33 | 2101CS99 | Salman Singh | salman@gmail.com               | 7000000000 | 2000-02-01 | Male    |
++----+----------+--------------+--------------------------------+------------+------------+---------+
+18 rows in set (0.00 sec)
+
+mysql> select * from stuedu;
++----+----------+----------------+------------+-------+--------+------+
+| id | RollNo   | Specialization | Batch_year | tenth | twelve | CPI  |
++----+----------+----------------+------------+-------+--------+------+
+ | 1 | RollNo   | Specialization | Batch_year | tenth | twelve | CPI
+ | 2 | 2021EE02 | EEE            | 2021       | 94.5  | 92.4   | 9.8
+ | 3 | 2019CS07 | CS             | 2019       | 89.2  | 85.8   | 8.9
+ | 4 | 2020AI05 | AI             | 2020       | 86.4  | 93.2   | 9.1
+ | 5 | 2022MC01 | MnC            | 2022       | 93    | 94     | 9.7
+ | 6 | 2021EE06 | EEE            | 2021       | 91.6  | 93.8   | 9.5
+ | 7 | 2021EE01 | EEE            | 2021       | 94.2  | 90.5   | 9.5
+ | 8 | 2020MC01 | MnC            | 2020       | 89.8  | 92.4   | 9.3
+ | 9 | 2019AI05 | AI             | 2019       | 90.4  | 87.3   | 9.1
+ |10 | 2022CS02 | CS             | 2022       | 96.2  | 94.3   | 9.9
+ |11 | 2021AI04 | AI             | 2021       | 92.5  | 88.2   | 9.3
+ |12 | 2019CS03 | AI             | 2019       | 91.6  | 90.4   | 9.6
+ |13 | 2020AI01 | CS             | 2020       | 87.8  | 89.4   | 9.2
+ |14 | 2021MC05 | MnC            | 2021       | 94.5  | 92.4   | 9.8
+ |15 | 2019EE10 | EEE            | 2019       | 92.4  | 87.6   | 9.4
+   | | 2020CS02 | AI             | 2020       | 88.6  | 86.4   | 9
+| 32 | 2101cs59 | CSE            | 2021       | 100   | 96     | 8.9  |
+| 33 | 2101CS99 | CSE            | 2021       | 0     | 100    | -9   |
++----+----------+----------------+------------+-------+--------+------+
+18 rows in set (0.00 sec)
+
+mysql> select * from compresult;
+Empty set (0.00 sec)
+
+mysql> select * from compresult;
+Empty set (0.00 sec)
+
+mysql> desc compresult
+    -> ;
++----------------+--------------+------+-----+---------+----------------+
+| Field          | Type         | Null | Key | Default | Extra          |
++----------------+--------------+------+-----+---------+----------------+
+| id             | int          | NO   | PRI | NULL    | auto_increment |
+| Name           | varchar(50)  | YES  |     | NULL    |                |
+| RollNo         | varchar(30)  | YES  | UNI | NULL    |                |
+| email          | varchar(100) | YES  |     | NULL    |                |
+| CPI            | float        | YES  |     | NULL    |                |
+| Gender         | varchar(10)  | YES  |     | NULL    |                |
+| Specialization | varchar(100) | YES  |     | NULL    |                |
+| Package        | float        | YES  |     | NULL    |                |
++----------------+--------------+------+-----+---------+----------------+
+8 rows in set (0.00 sec)
+
+mysql> desc studet;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| id     | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo | varchar(30) | YES  | UNI | NULL    |                |
+| Name   | varchar(30) | YES  |     | NULL    |                |
+| email  | varchar(50) | YES  | UNI | NULL    |                |
+| phone  | varchar(50) | YES  |     | NULL    |                |
+| DOB    | date        | YES  |     | NULL    |                |
+| Gender | varchar(30) | YES  |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+7 rows in set (0.00 sec)
+
+mysql> alter table compresult modify column Gender varchar(30);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from studet;
++----+----------+--------------+--------------------------------+------------+------------+---------+
+| id | RollNo   | Name         | email                          | phone      | DOB        | Gender  |
++----+----------+--------------+--------------------------------+------------+------------+---------+
+ | 1 | RollNo   | Name         | email                          | phone      | 0000-00-00 | Gender
+   | | 2021EE02 | Rohit        | rohit_2021EE02@iitp.ac.in      | 9876543211 | 2002-06-01 | Male
+ | 3 | 2019CS07 | Shivani      | shivani_2019CS07@iitp.ac.in    | 9876543212 | 1999-10-03 | Female
+   | | 2020AI05 | Ankit        | ankit_2020AI05@iitp.ac.in      | 9876543213 | 2000-04-12 | Male
+ | 5 | 2022MC01 | Swati        | swati_2022MC01@iitp.ac.in      | 9876543214 | 2003-09-21 | Female
+ | 6 | 2021EE06 | Vishal       | vishal_2021EE06@iitp.ac.in     | 9876543215 | 2002-11-11 | Others
+   | | 2021EE01 | Vikas        | vikas_2021EE01@iitp.ac.in      | 9963487951 | 2002-06-11 | Male
+ | 8 | 2020MC01 | Kavya        | kavya_2020MC01@iitp.ac.in      | 9826143750 | 2000-11-23 | Female
+   | | 2019AI05 | Alok         | alok_2019AI05@iitp.ac.in       | 9774857382 | 1999-09-18 | Male
+ |10 | 2022CS02 | Jhanvi       | jhanvi_2022CS02@iitp.ac.in     | 9652147389 | 2003-02-05 | Female
+   | | 2021AI04 | Ravi         | ravi_2021AI04@iitp.ac.in       | 9876543211 | 2002-01-29 | Male
+ |12 | 2019CS03 | Neha Singh   | neha_singh_2019CS03@iitp.ac.in | 9774759271 | 1999-03-21 | Female
+   | | 2020AI01 | Nishant      | nishant_2020AI01@iitp.ac.in    | 9826758381 | 2000-07-12 | Male
+   | | 2021MC05 | Pradeep      | pradeep_2021MC05@iitp.ac.in    | 9856231470 | 2002-02-08 | Male
+ |15 | 2019EE10 | Priya        | priya_2019EE10@iitp.ac.in      | 9632587412 | 1999-05-15 | Female
+   | | 2020CS02 | Rahul        | rahul_2020CS02@iitp.ac.in      | 9876543210 | 2000-08-02 | Male
+| 32 | 2101cs59 | Pradeep      | pyahoo2881@gmail.com           | 9876543210 | 2023-04-18 | Male    |
+| 33 | 2101CS99 | Salman Singh | salman@gmail.com               | 7000000000 | 2000-02-01 | Male    |
++----+----------+--------------+--------------------------------+------------+------------+---------+
+18 rows in set (0.01 sec)
+
+mysql> select Gender from studet;
++---------+
+| Gender  |
++---------+
+ |Gender
+   |le
+ |Female
+   |le
+ |Female
+ |Others
+   |le
+ |Female
+   |le
+ |Female
+   |le
+ |Female
+   |le
+   |le
+ |Female
+   |le
+| Male    |
+| Male    |
++---------+
+18 rows in set (0.00 sec)
+
+mysql> desc studet;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| id     | int         | NO   | PRI | NULL    | auto_increment |
+| RollNo | varchar(30) | YES  | UNI | NULL    |                |
+| Name   | varchar(30) | YES  |     | NULL    |                |
+| email  | varchar(50) | YES  | UNI | NULL    |                |
+| phone  | varchar(50) | YES  |     | NULL    |                |
+| DOB    | date        | YES  |     | NULL    |                |
+| Gender | varchar(30) | YES  |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+7 rows in set (0.00 sec)
+
+mysql> select Gender from studet;
++---------+
+| Gender  |
++---------+
+ |Gender
+   |le
+ |Female
+   |le
+ |Female
+ |Others
+   |le
+ |Female
+   |le
+ |Female
+   |le
+ |Female
+   |le
+   |le
+ |Female
+   |le
+| Male    |
+| Male    |
++---------+
+18 rows in set (0.00 sec)
+
+mysql> update studet set Gender="Male" ;
+Query OK, 16 rows affected (0.01 sec)
+Rows matched: 18  Changed: 16  Warnings: 0
+
+mysql> select Gender from studet;
++--------+
+| Gender |
++--------+
+| Male   |
+| Male   |
+| Male   |
+| Male   |
+| Male   |
+| Male   |
+| Male   |
+| Male   |
+| Male   |
+| Male   |
+| Male   |
+| Male   |
+| Male   |
+| Male   |
+| Male   |
+| Male   |
+| Male   |
+| Male   |
++--------+
+18 rows in set (0.00 sec)
+
+mysql> update studet set Gender="Female" where id%2=0 ;
+Query OK, 9 rows affected (0.01 sec)
+Rows matched: 9  Changed: 9  Warnings: 0
+
+mysql> select * from studet;
++----+----------+--------------+--------------------------------+------------+------------+--------+
+| id | RollNo   | Name         | email                          | phone      | DOB        | Gender |
++----+----------+--------------+--------------------------------+------------+------------+--------+
+|  1 | RollNo   | Name         | email                          | phone      | 0000-00-00 | Male   |
+|  2 | 2021EE02 | Rohit        | rohit_2021EE02@iitp.ac.in      | 9876543211 | 2002-06-01 | Female |
+|  3 | 2019CS07 | Shivani      | shivani_2019CS07@iitp.ac.in    | 9876543212 | 1999-10-03 | Male   |
+|  4 | 2020AI05 | Ankit        | ankit_2020AI05@iitp.ac.in      | 9876543213 | 2000-04-12 | Female |
+|  5 | 2022MC01 | Swati        | swati_2022MC01@iitp.ac.in      | 9876543214 | 2003-09-21 | Male   |
+|  6 | 2021EE06 | Vishal       | vishal_2021EE06@iitp.ac.in     | 9876543215 | 2002-11-11 | Female |
+|  7 | 2021EE01 | Vikas        | vikas_2021EE01@iitp.ac.in      | 9963487951 | 2002-06-11 | Male   |
+|  8 | 2020MC01 | Kavya        | kavya_2020MC01@iitp.ac.in      | 9826143750 | 2000-11-23 | Female |
+|  9 | 2019AI05 | Alok         | alok_2019AI05@iitp.ac.in       | 9774857382 | 1999-09-18 | Male   |
+| 10 | 2022CS02 | Jhanvi       | jhanvi_2022CS02@iitp.ac.in     | 9652147389 | 2003-02-05 | Female |
+| 11 | 2021AI04 | Ravi         | ravi_2021AI04@iitp.ac.in       | 9876543211 | 2002-01-29 | Male   |
+| 12 | 2019CS03 | Neha Singh   | neha_singh_2019CS03@iitp.ac.in | 9774759271 | 1999-03-21 | Female |
+| 13 | 2020AI01 | Nishant      | nishant_2020AI01@iitp.ac.in    | 9826758381 | 2000-07-12 | Male   |
+| 14 | 2021MC05 | Pradeep      | pradeep_2021MC05@iitp.ac.in    | 9856231470 | 2002-02-08 | Female |
+| 15 | 2019EE10 | Priya        | priya_2019EE10@iitp.ac.in      | 9632587412 | 1999-05-15 | Male   |
+| 16 | 2020CS02 | Rahul        | rahul_2020CS02@iitp.ac.in      | 9876543210 | 2000-08-02 | Female |
+| 32 | 2101cs59 | Pradeep      | pyahoo2881@gmail.com           | 9876543210 | 2023-04-18 | Female |
+| 33 | 2101CS99 | Salman Singh | salman@gmail.com               | 7000000000 | 2000-02-01 | Male   |
++----+----------+--------------+--------------------------------+------------+------------+--------+
+18 rows in set (0.00 sec)
+
+mysql> select Gender from studet;
++--------+
+| Gender |
++--------+
+| Male   |
+| Female |
+| Male   |
+| Female |
+| Male   |
+| Female |
+| Male   |
+| Female |
+| Male   |
+| Female |
+| Male   |
+| Female |
+| Male   |
+| Female |
+| Male   |
+| Female |
+| Female |
+| Male   |
++--------+
+18 rows in set (0.00 sec)
+
+mysql>

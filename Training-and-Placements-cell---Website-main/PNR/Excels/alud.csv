@@ -1,0 +1,15 @@
+id,Name,Company,CTC,Email,Phone,Position,Location,Working,CPI,Gender
+NULL,Nityanand,Amazon,2000000,nityanand_2020CS01@iitp.ac.in,9898989898,SDE II,Bangalore,2020-2024,8.44,Male
+NULL,Rohit,Google,2500000,rohit_2020AI02@iitp.ac.in,9876543210,SWE III,Hyderabad,2020-2024,9.02,Female
+NULL,Ashu,Microsoft,1800000,ashu_2021EE03@iitp.ac.in,9876543210,Data Sci,Mumbai,2021-2025,8.78,Male
+NULL,Rahul,IBM,2200000,rahul_2021CS04@iitp.ac.in,9876543210,SDE III,Bangalore,2021-2025,8.9,Female
+NULL,Anjali,Uber,1500000,anjali_2022MC05@iitp.ac.in,9876543210,QA Eng,San Francisco,2022-2026,8.2,Others
+NULL,Suman,Facebook,2800000,suman_2022CS06@iitp.ac.in,9898989898,SWE III,Menlo Park,2022-2026,9.5,Male
+NULL,Sanjay,Apple,3000000,sanjay_2023AI07@iitp.ac.in,9876543210,AI Res,Cupertino,2023-2027,9.67,Female
+NULL,Ravi,Nvidia,1900000,ravi_2023EE08@iitp.ac.in,9898989898,HW Eng,Santa Clara,2023-2027,8.33,Male
+NULL,Manish,Intel,2500000,manish_2024CS09@iitp.ac.in,9876543210,SDE III,Bangalore,2024-2028,9.1,Female
+NULL,Aditya Singh,TCS,750000,aditya2030ee32@iitp.ac.in,9774356734,Backend Dev,Hyderabad,2021-2025,8.2,Male
+NULL,Aman Yadav,Google,1400000,aman2028cs45@iitp.ac.in,8907876453,Full Stack,Bangalore,2021-2025,9.3,Female
+NULL,Ankit Kumar,Amazon,1200000,ankit2029mc78@iitp.ac.in,7854795632,ML Engineer,Delhi,2021-2025,8.8,Male
+NULL,Rajesh Patel,Microsoft,1250000,rajesh2027cs11@iitp.ac.in,9875643210,Cloud Dev,Noida,2021-2025,9.1,Male
+NULL,Sonali Singh,Oracle,950000,sonali2031ai23@iitp.ac.in,7458963201,Data Analyst,Mumbai,2021-2025,8.5,Female

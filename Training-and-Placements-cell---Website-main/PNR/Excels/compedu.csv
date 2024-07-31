@@ -1,0 +1,11 @@
+id,Name,CPI,Salary_low,Salary_high,Mode,year
+1,Google,8.5,100000,200000,Offline,2008
+2,Microsoft,9,90000,180000,Online,2009
+3,Amazon,8,80000,160000,Partial,2010
+4,Flipkart,8.2,80000,150000,Offline,2011
+5,Tata,7.5,70000,140000,Online,2012
+6,Infosys,9.5,110000,220000,Partial,2013
+7,L&T,7,60000,120000,Offline,2014
+8,Accenture,8.7,95000,190000,Online,2015
+9,Cognizant,8.3,85000,170000,Partial,2016
+10,HCL,7.8,75000,150000,Offline,2017

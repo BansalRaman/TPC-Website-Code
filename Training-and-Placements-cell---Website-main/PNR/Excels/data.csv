@@ -1,0 +1,16 @@
+id,RollNo,Name,email,phone,DOB,Specialization,Batch_year,tenth,twelve,CPI,SDE,Management,ML,Fin,Quant,Consult,core,Placed,CName,Package,Gender,Password
+NULL,2021EE02,Rohit,rohit_2021EE02@iitp.ac.in,9876543211,2002-06-01,EEE,2021,94.5,92.4,9.8,No,Yes,Yes,No,Yes,No,Yes,Yes,TCS,700000,Male,password1
+NULL,2019CS07,Shivani,shivani_2019CS07@iitp.ac.in,9876543212,1999-10-03,CS,2019,89.2,85.8,8.9,Yes,No,Yes,No,Yes,No,Yes,Yes,Infosys,650000,Female,password2
+NULL,2020AI05,Ankit,ankit_2020AI05@iitp.ac.in,9876543213,2000-04-12,AI,2020,86.4,93.2,9.1,Yes,Yes,No,Yes,No,Yes,Yes,Yes,Amazon,800000,Male,password3
+NULL,2022MC01,Swati,swati_2022MC01@iitp.ac.in,9876543214,2003-09-21,MnC,2022,93,94,9.7,No,Yes,No,Yes,Yes,No,Yes,Yes,Infosys,600000,Female,password4
+NULL,2021EE06,Vishal,vishal_2021EE06@iitp.ac.in,9876543215,2002-11-11,EEE,2021,91.6,93.8,9.5,Yes,Yes,No,No,Yes,No,Yes,No,NULL,NULL,Others,password5
+NULL,2021EE01,Vikas,vikas_2021EE01@iitp.ac.in,9963487951,2002-06-11,EEE,2021,94.2,90.5,9.5,Yes,Yes,Yes,No,No,Yes,Yes,Yes,Infosys,650000,Male,pass567
+NULL,2020MC01,Kavya,kavya_2020MC01@iitp.ac.in,9826143750,2000-11-23,MnC,2020,89.8,92.4,9.3,Yes,No,Yes,Yes,No,Yes,No,Yes,NULL,NULL,Female,password8
+NULL,2019AI05,Alok,alok_2019AI05@iitp.ac.in,9774857382,1999-09-18,AI,2019,90.4,87.3,9.1,No,Yes,Yes,No,Yes,No,Yes,Yes,TCS,700000,Male,pass789
+NULL,2022CS02,Jhanvi,jhanvi_2022CS02@iitp.ac.in,9652147389,2003-02-05,CS,2022,96.2,94.3,9.9,Yes,Yes,No,Yes,Yes,Yes,Yes,Yes,Deloitte,850000,Female,password10
+NULL,2021AI04,Ravi,ravi_2021AI04@iitp.ac.in,9876543211,2002-01-29,AI,2021,92.5,88.2,9.3,Yes,Yes,No,No,Yes,Yes,Yes,Yes,Wipro,600000,Male,pass111
+NULL,2019CS03,Neha Singh,neha_singh_2019CS03@iitp.ac.in,9774759271,1999-03-21,AI,2019,91.6,90.4,9.6,Yes,No,Yes,No,Yes,No,Yes,Yes,TCS,700000,Female,pass@123
+NULL,2020AI01,Nishant,nishant_2020AI01@iitp.ac.in,9826758381,2000-07-12,CS,2020,87.8,89.4,9.2,Yes,Yes,No,Yes,Yes,Yes,No,Yes,Infosys,650000,Male,password12
+NULL,2021MC05,Pradeep,pradeep_2021MC05@iitp.ac.in,9856231470,2002-02-08,MnC,2021,94.5,92.4,9.8,No,Yes,Yes,Yes,No,No,No,Yes,Wipro,600000,Male,pass123
+NULL,2019EE10,Priya,priya_2019EE10@iitp.ac.in,9632587412,1999-05-15,EEE,2019,92.4,87.6,9.4,Yes,Yes,No,No,Yes,Yes,Yes,No,NULL,NULL,Female,pass456
+NULL,2020CS02,Rahul,rahul_2020CS02@iitp.ac.in,9876543210,2000-08-02,AI,2020,88.6,86.4,9,No,Yes,Yes,No,Yes,Yes,Yes,Yes,Accenture,750000,Male,password34
